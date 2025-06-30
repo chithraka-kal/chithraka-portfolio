@@ -1,35 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <header style={styles.header}>
+        <h1>WACK Wickramasinghe</h1>
+        <p>Full Stack Developer | React | Node.js</p>
+      </header>
+
+      <section style={styles.section}>
+        <h2>Projects</h2>
+        <div style={styles.cardContainer}>
+          <ProjectCard 
+            title="My Portfolio" 
+            description="A personal portfolio to showcase my work."
+          />
+          <ProjectCard 
+            title="Todo App" 
+            description="A simple task management tool built with React." 
+          />
+          <ProjectCard 
+            title="Game Demo" 
+            description="A mini platformer game using HTML5 canvas." 
+          />
+        </div>
+      </section>
+
+      <footer style={styles.footer}>
+        <p>© 2025 WACK Wickramasinghe</p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+function ProjectCard({ title, description }) {
+  return (
+    <div style={styles.card}>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+}
+
+const styles = {
+  header: {
+    backgroundColor: '#222',
+    color: 'white',
+    padding: '2rem',
+  },
+  section: {
+    padding: '2rem',
+  },
+  cardContainer: {
+    display: 'flex',
+    gap: '1rem',
+    flexWrap: 'wrap',
+  },
+  card: {
+    backgroundColor: '#f0f0f0',
+    padding: '1rem',
+    borderRadius: '8px',
+    flex: '1 0 30%',
+  },
+  footer: {
+    marginTop: '2rem',
+    padding: '1rem',
+    backgroundColor: '#222',
+    color: 'white',
+  }
+};
+
+export default App;
