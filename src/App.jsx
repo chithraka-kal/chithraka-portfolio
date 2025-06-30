@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header style={styles.header}>
-        <h1>WACK Wickramasinghe</h1>
+        <h1>Chithraka Kalanamith</h1>
         <p>Full Stack Developer | React | Node.js</p>
       </header>
 
