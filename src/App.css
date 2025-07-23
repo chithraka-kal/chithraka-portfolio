@@ -228,6 +228,16 @@ a:hover {
   padding: 0;
 }
 
+.section-layer[data-section="skills"] .section-content {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  /* Keep max-width and padding for consistent layout */
+  max-width: 1200px;
+  padding: 3rem;
+}
+
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;

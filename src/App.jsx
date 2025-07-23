@@ -29,11 +29,11 @@ function AppContent() {
         <section className="section-layer" data-section="about">
           <AboutMe />
         </section>
-        <section className="section-layer" data-section="projects">
-          <Projects />
-        </section>
         <section className="section-layer" data-section="skills">
           <Skills />
+        </section>
+        <section className="section-layer" data-section="projects">
+          <Projects />
         </section>
         <section className="section-layer" data-section="education">
           <Education />
