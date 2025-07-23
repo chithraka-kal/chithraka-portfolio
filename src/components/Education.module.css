@@ -1,0 +1,118 @@
+.section {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+.educationTimeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.educationTimeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #007bff;
+}
+
+.educationItem {
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.educationItem:hover {
+    transform: translateX(10px);
+}
+
+.educationItem::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 2rem;
+    width: 12px;
+    height: 12px;
+    background-color: #007bff;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #007bff;
+}
+
+.degree {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.school {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.year {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+    
+    .educationTimeline {
+        padding-left: 1rem;
+    }
+    
+    .educationTimeline::before {
+        left: 0.5rem;
+    }
+    
+    .educationItem::before {
+        left: -1.5rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
