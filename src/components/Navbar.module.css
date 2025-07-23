@@ -1,9 +1,29 @@
-.navbar {
+/* Progress bar at the top */
+.progressBar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    height: 4px;
+    background-color: var(--border-color);
+    z-index: 1001;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+    transition: width 0.1s ease;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.navbar {
+    position: fixed;
+    top: 4px; /* Account for progress bar */
+    left: 0;
+    right: 0;
     background-color: var(--navbar-bg);
+    backdrop-filter: blur(15px);
     box-shadow: 0 2px 10px var(--shadow-light);
     z-index: 1000;
     padding: 1rem 0;
