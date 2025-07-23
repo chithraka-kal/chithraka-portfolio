@@ -1,6 +1,7 @@
 .section {
     padding: 4rem 2rem;
     background-color: var(--bg-secondary);
+    backdrop-filter: blur(10px);
     min-height: 500px;
 }
 
