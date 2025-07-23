@@ -3,82 +3,252 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 84px; /* Account for fixed navbar + progress bar */
+    position: relative;
+    background: var(--gradient-canvas);
+    padding: 100px 20px 60px;
+    overflow: hidden;
+}
+
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, 
+        rgba(var(--accent-rgb), 0.08) 0%, 
+        transparent 70%);
+    pointer-events: none;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-color);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
 }
 
 .subtitle {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.3s both;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
 }
 
 .description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 3rem;
-    opacity: 0.8;
-    animation: fadeInUp 1s ease-out 0.6s both;
+    color: var(--text-subtle);
+    margin: 0;
+    max-width: 500px;
 }
 
-.ctaButton {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--bg-primary);
-    color: var(--accent-color);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
+.ctaButtons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.primaryButton,
+.secondaryButton {
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
-    animation: fadeInUp 1s ease-out 0.9s both;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
 }
 
-.ctaButton:hover {
-    background-color: var(--bg-secondary);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.primaryButton {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-small);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.secondaryButton {
+    background: var(--secondary-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.secondaryButton:hover {
+    background: var(--border-muted);
+    border-color: var(--border-color);
+    transform: translateY(-1px);
+}
+
+.heroVisual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.codeBlock {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    max-width: 400px;
+    width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
         transform: translateY(0);
     }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .heroSection {
-        padding: 1rem;
-        margin-top: 74px;
+.codeHeader {
+    background: var(--secondary-bg);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    opacity: 0.8;
+}
+
+.dots span:nth-child(1) { background: #ff5f57; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #28ca42; }
+
+.fileName {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.codeContent {
+    padding: 20px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.codeLine {
+    margin-bottom: 8px;
+    animation: typewriter 2s steps(20) infinite alternate;
+}
+
+@keyframes typewriter {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.keyword { color: #cf222e; }
+.variable { color: #0969da; }
+.operator { color: var(--text-color); }
+.string { color: #0a3069; }
+.method { color: #8250df; }
+.parentheses { color: var(--text-color); }
+
+/* Dark theme syntax highlighting */
+[data-theme="dark"] .keyword { color: #ff7b72; }
+[data-theme="dark"] .variable { color: #79c0ff; }
+[data-theme="dark"] .operator { color: var(--text-color); }
+[data-theme="dark"] .string { color: #a5d6ff; }
+[data-theme="dark"] .method { color: #d2a8ff; }
+[data-theme="dark"] .parentheses { color: var(--text-color); }
+
+@media (max-width: 968px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .heroContent {
+        order: 2;
+    }
+    
+    .heroVisual {
+        order: 1;
     }
     
     .title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 8vw, 3rem);
     }
     
-    .subtitle {
-        font-size: 1.2rem;
+    .ctaButtons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .heroSection {
+        padding: 80px 15px 40px;
+    }
+    
+    .ctaButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        max-width: 300px;
     }
 }
