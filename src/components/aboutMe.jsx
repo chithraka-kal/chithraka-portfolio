@@ -1,4 +1,4 @@
-function aboutMe() {
+function AboutMe() {
     return (
         <div>
             <h1>Chithraka Kalanamith</h1>
@@ -7,4 +7,4 @@ function aboutMe() {
     );
 }
 
-export default aboutMe;
+export default AboutMe;

@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
-import aboutMe from './components/aboutMe';
+import AboutMe from './components/AboutMe';
 
 function App() {
   return (
+    <>
     <div className="App">
       <header style={styles.header}>
         <h1>Chithraka Kalanamith</h1>
         <p>Full Stack Developer | React | Node.js</p>
       </header>
 
-      <aboutMe />
+      <AboutMe />
 
       <section style={styles.section}>
         <h2>Projects</h2>
@@ -34,6 +35,7 @@ function App() {
         <p>© 2025 WACK Wickramasinghe</p>
       </footer>
     </div>
+    </>
   );
 }
 
