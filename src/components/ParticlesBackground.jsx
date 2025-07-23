@@ -82,18 +82,15 @@ function ParticlesBackground() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 
-                // Use solid color instead of gradient for better visibility
-                const accentColor = getComputedStyle(document.documentElement)
-                    .getPropertyValue('--accent-color') || '#007bff';
-                
-                ctx.fillStyle = accentColor;
+                // Use GitHub's accent color
+                ctx.fillStyle = '#2f81f7'; // GitHub blue
                 ctx.fill();
                 
-                // Add a white glow effect
+                // Add a subtle glow effect
                 ctx.globalAlpha = this.opacity * 0.3;
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size + 2, 0, Math.PI * 2);
-                ctx.fillStyle = 'white';
+                ctx.arc(this.x, this.y, this.size + 1, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(47, 129, 247, 0.6)';
                 ctx.fill();
             }
         }
@@ -125,8 +122,7 @@ function ParticlesBackground() {
                         ctx.beginPath();
                         ctx.moveTo(particle1.x, particle1.y);
                         ctx.lineTo(particle2.x, particle2.y);
-                        ctx.strokeStyle = getComputedStyle(document.documentElement)
-                            .getPropertyValue('--accent-color') || '#007bff';
+                        ctx.strokeStyle = '#2f81f7'; // GitHub blue for connections
                         ctx.lineWidth = 2; // Thicker lines
                         ctx.stroke();
                     }
@@ -137,13 +133,6 @@ function ParticlesBackground() {
         // Animation loop
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Debug: Add a visible test circle to ensure canvas is working
-            ctx.globalAlpha = 1;
-            ctx.beginPath();
-            ctx.arc(50, 50, 10, 0, Math.PI * 2);
-            ctx.fillStyle = 'red';
-            ctx.fill();
             
             // Update and draw particles
             particlesRef.current.forEach(particle => {
