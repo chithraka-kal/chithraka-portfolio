@@ -1,6 +1,7 @@
 .section {
     padding: 4rem 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -35,13 +36,14 @@
 }
 
 .certificationCard {
-    background-color: white;
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-light);
     text-align: center;
     transition: all 0.3s ease;
-    border-left: 5px solid #007bff;
+    border-left: 5px solid var(--accent-color);
 }
 
 .certificationCard:hover {
