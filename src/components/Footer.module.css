@@ -1,94 +1,483 @@
+/* Footer */
 .footer {
-    background-color: var(--bg-primary);
-    backdrop-filter: blur(10px);
-    color: var(--text-primary);
-    padding: 2rem;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
+    background: #1a1a1a;
+    color: #ffffff;
+    position: relative;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Get in Touch Section */
+.getInTouchSection {
+    padding: 100px 0 60px 0;
+    background: #1a1a1a;
 }
 
-.footerContent {
+.maxWidthContainer {
+    max-width: none;
+    margin: 0;
+    padding: 0 60px;
+    position: relative;
+    width: 100%;
+}
+
+.getInTouchContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+}
+
+.leftContent {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.rightContent {
+    background: #1a1a1a;
+}
+
+/* Contact Cards */
+.contactCards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.contactCard {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 20px;
+    transition: all 0.3s ease;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--accent-color);
+.contactCard:hover {
+    background: #333333;
+    border-color: #505050;
+    transform: translateY(-2px);
 }
 
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    background: #4A90E2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cardIcon svg {
+    fill: #ffffff;
+    width: 24px;
+    height: 24px;
+}
+
+.cardContent h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.cardContent p {
+    font-size: 16px;
+    color: #4A90E2;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Contact Form */
+.contactForm {
+    background: #1a1a1a;
+    padding: 0;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.formGroup {
+    margin-bottom: 24px;
+}
+
+.formLabel {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #404040;
+    border-radius: 12px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    background: #333333;
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+    color: #888888;
+}
+
+.formSelect {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+.formSelect option {
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    min-height: 56px;
+}
+
+.submitBtn:hover {
+    background: linear-gradient(135deg, #357ABD 0%, #2E6BA8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.3);
+}
+
+.sendIcon {
+    fill: currentColor;
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.submitBtn:hover .sendIcon {
+    transform: translateX(4px);
+}
+
+/* Social Links */
 .socialLinks {
     display: flex;
-    gap: 1rem;
+    gap: 16px;
 }
 
 .socialLink {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1.5rem;
-    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #2a2a2a;
+    border: 1px solid #404040;
     border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .socialLink:hover {
-    color: var(--accent-color);
-    transform: translateY(-3px);
+    background: #4A90E2;
+    border-color: #4A90E2;
+    transform: translateY(-2px);
 }
 
-.quickLinks {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+.socialLink svg {
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
+}
+
+/* Footer Bottom */
+.container {
+    max-width: none;
     margin: 0;
-    padding: 0;
+    padding: 0 60px;
+    width: 100%;
 }
 
-.quickLink {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.quickLink:hover {
-    color: var(--accent-color);
+.footerContent {
+    padding: 40px 0;
+    background: #1a1a1a;
 }
 
 .divider {
+    width: 100%;
     height: 1px;
-    background-color: var(--border-color);
-    margin: 1rem 0;
+    background: #404040;
+    margin-bottom: 24px;
 }
 
 .copyright {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
 }
 
-/* Mobile responsive */
+/* Dark mode adjustments (already dark by default) */
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background: #1a1a1a;
+    }
+    
+    .getInTouchSection {
+        background: #1a1a1a;
+    }
+    
+    .contactCard {
+        background: #2a2a2a;
+        border-color: #404040;
+    }
+    
+    .contactCard:hover {
+        background: #333333;
+    }
+    
+    .formInput,
+    .formSelect,
+    .formTextarea {
+        background: #2a2a2a;
+        border-color: #404040;
+        color: #ffffff;
+    }
+    
+    .formInput:focus,
+    .formSelect:focus,
+    .formTextarea:focus {
+        background: #333333;
+        border-color: #4A90E2;
+    }
+    
+    .socialLink {
+        background: #2a2a2a;
+        border-color: #404040;
+    }
+}
+
+/* Light mode override */
+@media (prefers-color-scheme: light) {
+    .footer {
+        background: #ffffff;
+        color: #1f2328;
+    }
+    
+    .getInTouchSection {
+        background: #f6f8fa;
+    }
+    
+    .contactCard {
+        background: #ffffff;
+        border-color: #d1d9e0;
+    }
+    
+    .contactCard:hover {
+        background: #f6f8fa;
+        border-color: #c1c9d0;
+    }
+    
+    .cardContent h3 {
+        color: #1f2328;
+    }
+    
+    .formInput,
+    .formSelect,
+    .formTextarea {
+        background: #ffffff;
+        border-color: #d1d9e0;
+        color: #1f2328;
+    }
+    
+    .formInput:focus,
+    .formSelect:focus,
+    .formTextarea:focus {
+        background: #ffffff;
+        border-color: #0969da;
+        box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    }
+    
+    .formLabel {
+        color: #1f2328;
+    }
+    
+    .contactForm {
+        background: #f6f8fa;
+    }
+    
+    .socialLink {
+        background: #ffffff;
+        border-color: #d1d9e0;
+        color: #1f2328;
+    }
+    
+    .socialLink:hover {
+        background: #0969da;
+        border-color: #0969da;
+        color: #ffffff;
+    }
+    
+    .divider {
+        background: #d1d9e0;
+    }
+    
+    .copyright {
+        color: #656d76;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .maxWidthContainer,
+    .container {
+        padding: 0 40px;
+    }
+    
+    .getInTouchContent {
+        gap: 80px;
+    }
+}
+
+@media (max-width: 968px) {
+    .getInTouchContent {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .leftContent {
+        order: 2;
+    }
+    
+    .rightContent {
+        order: 1;
+    }
+}
+
 @media (max-width: 768px) {
-    .footerContent {
+    .getInTouchSection {
+        padding: 80px 0 40px 0;
+    }
+    
+    .maxWidthContainer,
+    .container {
+        padding: 0 20px;
+    }
+    
+    .getInTouchContent {
+        gap: 40px;
+    }
+    
+    .contactCard {
+        padding: 20px;
+    }
+    
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .formInput,
+    .formSelect,
+    .formTextarea {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    
+    .submitBtn {
+        padding: 16px 32px;
+        font-size: 14px;
+        min-height: 52px;
+    }
+    
+    .socialLink {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .socialLinks {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .maxWidthContainer,
+    .container {
+        padding: 0 16px;
+    }
+    
+    .contactCard {
+        padding: 16px;
         flex-direction: column;
         text-align: center;
     }
     
-    .quickLinks {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+    .cardIcon {
+        width: 40px;
+        height: 40px;
     }
     
-    .footer {
-        padding: 1.5rem 1rem;
+    .cardIcon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .cardContent h3 {
+        font-size: 16px;
+    }
+    
+    .cardContent p {
+        font-size: 14px;
+    }
+    
+    .socialLink {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .socialLink svg {
+        width: 18px;
+        height: 18px;
     }
 }
