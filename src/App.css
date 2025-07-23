@@ -219,6 +219,10 @@ a:hover {
   padding: 0;
 }
 
+.section-layer[data-section="footer"] {
+  padding: 0;
+}
+
 .section-layer[data-section="footer"] .section-content {
   background: none;
   backdrop-filter: none;

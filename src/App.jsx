@@ -11,7 +11,6 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Certification from './components/Certification';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function AppContent() {
@@ -40,9 +39,6 @@ function AppContent() {
         </section>
         <section className="section-layer" data-section="certification">
           <Certification />
-        </section>
-        <section className="section-layer" data-section="contact">
-          <Contact />
         </section>
         <section className="section-layer" data-section="footer">
           <Footer />

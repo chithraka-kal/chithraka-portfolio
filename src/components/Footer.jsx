@@ -31,6 +31,7 @@ function Footer() {
             {/* Get in Touch Section */}
             <section className={styles.getInTouchSection}>
                 <div className={styles.maxWidthContainer}>
+                    <h2 className={styles.sectionTitle}>Get in Touch</h2>
                     <div className={styles.getInTouchContent}>
                         <div className={styles.leftContent}>
                             {/* Contact Details Cards */}
