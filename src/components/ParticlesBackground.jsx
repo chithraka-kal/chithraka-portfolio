@@ -158,7 +158,7 @@ function ParticlesBackground() {
 
                 ctx.restore();
             }
-        }
+        };
 
         // Create particles
         const createParticles = () => {
