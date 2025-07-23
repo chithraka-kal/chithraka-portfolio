@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutMe from './components/AboutMe';
@@ -12,18 +13,17 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>      
+    <ThemeProvider>
       <Navbar />
       <HeroSection />
       <AboutMe />
       <Projects />
       <Education />
       <Skills />
-      <Projects />
       <Certification />
       <Contact />
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 
