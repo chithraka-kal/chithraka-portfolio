@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import aboutMe from './components/aboutMe';
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
         <h1>Chithraka Kalanamith</h1>
         <p>Full Stack Developer | React | Node.js</p>
       </header>
+
+      <aboutMe />
 
       <section style={styles.section}>
         <h2>Projects</h2>
