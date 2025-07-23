@@ -1,6 +1,7 @@
 .section {
     padding: 4rem 2rem;
     background-color: var(--bg-secondary);
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -36,6 +37,7 @@
 
 .skillCategory {
     background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px var(--shadow-light);
