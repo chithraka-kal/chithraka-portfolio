@@ -1,38 +1,47 @@
 import styles from './Skills.module.css';
 
 function Skills() {
-    const skillCategories = [
+    const stackCategories = [
         {
-            title: "Frontend Development",
-            icon: "🎨",
-            description: "Building modern, responsive user interfaces",
-            skills: [
-                { name: "React", level: "Advanced", experience: "3+ years", projects: 15 },
-                { name: "JavaScript", level: "Advanced", experience: "4+ years", projects: 25 },
-                { name: "TypeScript", level: "Intermediate", experience: "2+ years", projects: 8 },
-                { name: "HTML & CSS", level: "Expert", experience: "5+ years", projects: 30 }
+            title: "FRONTEND",
+            technologies: [
+                { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+                { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+                { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+                { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+                { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+                { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+                { name: "Zustand", icon: "🐻" },
+                { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+                { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+                { name: "Styled-Components", icon: "�" }
             ]
         },
         {
-            title: "Backend Development", 
-            icon: "⚡",
-            description: "Creating robust server-side applications",
-            skills: [
-                { name: "Node.js", level: "Advanced", experience: "3+ years", projects: 12 },
-                { name: "Express.js", level: "Advanced", experience: "3+ years", projects: 10 },
-                { name: "MongoDB", level: "Intermediate", experience: "2+ years", projects: 8 },
-                { name: "PostgreSQL", level: "Intermediate", experience: "2+ years", projects: 6 }
+            title: "BACKEND",
+            technologies: [
+                { name: "Supabase", icon: "⚡" }
             ]
         },
         {
-            title: "Tools & DevOps",
-            icon: "🛠️", 
-            description: "Modern development tools and workflows",
-            skills: [
-                { name: "Git & GitHub", level: "Advanced", experience: "4+ years", projects: 40 },
-                { name: "VS Code", level: "Expert", experience: "5+ years", projects: 50 },
-                { name: "Vite", level: "Advanced", experience: "2+ years", projects: 15 },
-                { name: "npm/yarn", level: "Advanced", experience: "4+ years", projects: 35 }
+            title: "TOOLS",
+            technologies: [
+                { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+                { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+                { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+                { name: "VSCODE", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+                { name: "VIM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" },
+                { name: "NPM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+                { name: "PNPM", icon: "📦" },
+                { name: "Yarn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg" }
+            ]
+        },
+        {
+            title: "STUDYING",
+            technologies: [
+                { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+                { name: "GSAP", icon: "🌟" },
+                { name: "Frammer Motion", icon: "🎭" }
             ]
         }
     ];
@@ -42,72 +51,40 @@ function Skills() {
             <div className="section-content">
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.title}>My Skills</h2>
-                        <p className={styles.subtitle}>
-                            Technologies and tools I use to build modern web applications
-                        </p>
+                        <h2 className={styles.title}>MY STACK</h2>
                     </div>
                 
-                <div className={styles.skillsGrid}>
-                    {skillCategories.map((category, index) => (
-                        <SkillCategory key={index} {...category} />
-                    ))}
-                </div>
-
-                <div className={styles.statsSection}>
-                    <div className={styles.statCard}>
-                        <div className={styles.statNumber}>25+</div>
-                        <div className={styles.statLabel}>Projects Completed</div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statNumber}>3+</div>
-                        <div className={styles.statLabel}>Years Experience</div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statNumber}>15+</div>
-                        <div className={styles.statLabel}>Technologies</div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statNumber}>100%</div>
-                        <div className={styles.statLabel}>Dedication</div>
+                    <div className={styles.stackContainer}>
+                        {stackCategories.map((category, index) => (
+                            <StackCategory key={index} {...category} />
+                        ))}
                     </div>
                 </div>
-            </div>
             </div>
         </section>
     );
 }
 
-function SkillCategory({ title, icon, description, skills }) {
+function StackCategory({ title, technologies }) {
     return (
-        <div className={styles.skillCategory}>
-            <div className={styles.categoryHeader}>
-                <div className={styles.categoryIcon}>{icon}</div>
-                <div>
-                    <h3 className={styles.categoryTitle}>{title}</h3>
-                    <p className={styles.categoryDescription}>{description}</p>
-                </div>
-            </div>
-            
-            <div className={styles.skillsList}>
-                {skills.map((skill, index) => (
-                    <div key={index} className={styles.skillItem}>
-                        <div className={styles.skillHeader}>
-                            <div className={styles.skillInfo}>
-                                <span className={styles.skillName}>{skill.name}</span>
-                                <span className={styles.skillExperience}>{skill.experience}</span>
-                            </div>
-                            <div className={styles.skillStats}>
-                                <span className={styles.skillLevel}>{skill.level}</span>
-                                <span className={styles.skillProjects}>{skill.projects} projects</span>
-                            </div>
-                        </div>
-                        <div className={styles.skillBar}>
-                            <div 
-                                className={styles.skillProgress}
-                                data-level={skill.level.toLowerCase()}
-                            ></div>
-                        </div>
+        <div className={styles.stackCategory}>
+            <h3 className={styles.categoryTitle}>{title}</h3>
+            <div className={styles.technologiesFlow}>
+                {technologies.map((tech, index) => (
+                    <div key={index} className={styles.techItem}>
+                        <img 
+                            src={tech.icon.startsWith('http') ? tech.icon : undefined} 
+                            alt={tech.name}
+                            className={tech.icon.startsWith('http') ? styles.techIcon : styles.techIconHidden}
+                            onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextSibling.style.display = 'inline';
+                            }}
+                        />
+                        <span className={styles.techEmoji} style={{display: tech.icon.startsWith('http') ? 'none' : 'inline'}}>
+                            {tech.icon.startsWith('http') ? '💻' : tech.icon}
+                        </span>
+                        <span className={styles.techName}>{tech.name}</span>
                     </div>
                 ))}
             </div>

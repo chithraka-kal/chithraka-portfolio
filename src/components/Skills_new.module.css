@@ -8,7 +8,7 @@
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -18,7 +18,7 @@
 
 .sectionHeader {
     text-align: left;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .title {
@@ -29,37 +29,37 @@
     letter-spacing: -0.02em;
 }
 
-.stackContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+.stackGrid {
+    display: grid;
+    gap: 60px;
 }
 
 .stackCategory {
-    margin-bottom: 0;
+    margin-bottom: 40px;
 }
 
 .categoryTitle {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--text-color);
-    margin: 0 0 40px 0;
-    letter-spacing: -0.02em;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 0 30px 0;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
-.technologiesFlow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px 40px;
-    align-items: center;
+.technologiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 800px;
 }
 
 .techItem {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 12px 20px;
+    text-align: center;
+    padding: 20px;
     background: rgba(var(--accent-rgb), 0.05);
     border: 1px solid rgba(var(--accent-rgb), 0.1);
     border-radius: 12px;
@@ -75,85 +75,67 @@
 }
 
 .techIcon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    filter: grayscale(0.3);
+    transition: filter 0.3s ease;
 }
 
-.techIconHidden {
-    display: none;
-}
-
-.techEmoji {
-    font-size: 32px;
-    line-height: 1;
+.techItem:hover .techIcon {
+    filter: grayscale(0);
 }
 
 .techName {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-color);
-    white-space: nowrap;
+    line-height: 1.4;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
-        max-width: 100%;
     }
     
-    .stackContainer {
-        gap: 60px;
-    }
-    
-    .technologiesFlow {
-        gap: 20px 25px;
+    .technologiesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
     }
     
     .techItem {
-        padding: 10px 16px;
-        gap: 10px;
+        padding: 15px;
     }
     
     .techIcon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .techEmoji {
-        font-size: 28px;
-    }
-    
-    .techName {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .technologiesFlow {
-        gap: 15px 20px;
-    }
-    
-    .techItem {
-        padding: 8px 12px;
-        gap: 8px;
-    }
-    
-    .techIcon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .techEmoji {
-        font-size: 24px;
+        font-size: 2rem;
+        margin-bottom: 8px;
     }
     
     .techName {
         font-size: 0.8rem;
     }
     
-    .stackContainer {
+    .stackGrid {
         gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .technologiesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .techItem {
+        padding: 12px;
+    }
+    
+    .techIcon {
+        font-size: 1.8rem;
+    }
+    
+    .techName {
+        font-size: 0.75rem;
     }
 }
