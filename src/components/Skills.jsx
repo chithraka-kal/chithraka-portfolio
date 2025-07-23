@@ -39,13 +39,14 @@ function Skills() {
 
     return (
         <section className={styles.section} id="skills">
-            <div className={styles.container}>
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.title}>My Skills</h2>
-                    <p className={styles.subtitle}>
-                        Technologies and tools I use to build modern web applications
-                    </p>
-                </div>
+            <div className="section-content">
+                <div className={styles.container}>
+                    <div className={styles.sectionHeader}>
+                        <h2 className={styles.title}>My Skills</h2>
+                        <p className={styles.subtitle}>
+                            Technologies and tools I use to build modern web applications
+                        </p>
+                    </div>
                 
                 <div className={styles.skillsGrid}>
                     {skillCategories.map((category, index) => (
@@ -71,6 +72,7 @@ function Skills() {
                         <div className={styles.statLabel}>Dedication</div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     );

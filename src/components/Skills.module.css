@@ -1,9 +1,8 @@
 .section {
-    padding: 120px 20px;
-    background: linear-gradient(135deg, 
-        var(--primary-bg) 0%, 
-        rgba(var(--accent-rgb), 0.02) 100%);
+    padding: 0;
+    background: none;
     position: relative;
+    min-height: 100vh;
 }
 
 .section::before {
