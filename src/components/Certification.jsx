@@ -27,12 +27,14 @@ function Certification() {
 
     return (
         <section className={styles.section} id="certifications">
-            <div className={styles.container}>
-                <h2 className={styles.title}>Certifications</h2>
-                <div className={styles.certificationsGrid}>
-                    {certifications.map((cert, index) => (
-                        <CertificationCard key={index} certification={cert} />
-                    ))}
+            <div className="section-content">
+                <div className={styles.container}>
+                    <h2 className={styles.title}>Certifications</h2>
+                    <div className={styles.certificationsGrid}>
+                        {certifications.map((cert, index) => (
+                            <CertificationCard key={index} certification={cert} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
