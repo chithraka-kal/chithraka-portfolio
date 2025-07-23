@@ -7,7 +7,7 @@
     color: white;
     text-align: center;
     padding: 2rem;
-    margin-top: 80px; /* Account for fixed navbar */
+    margin-top: 84px; /* Account for fixed navbar + progress bar */
 }
 
 .container {
@@ -71,7 +71,7 @@
 @media (max-width: 768px) {
     .heroSection {
         padding: 1rem;
-        margin-top: 70px;
+        margin-top: 74px;
     }
     
     .title {

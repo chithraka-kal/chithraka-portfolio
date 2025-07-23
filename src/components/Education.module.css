@@ -1,6 +1,7 @@
 .section {
     padding: 4rem 2rem;
-    background-color: #ffffff;
+    background-color: var(--bg-primary);
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -45,11 +46,12 @@
 
 .educationItem {
     position: relative;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
+    backdrop-filter: blur(10px);
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px var(--shadow-light);
     transition: transform 0.3s ease;
 }
 
