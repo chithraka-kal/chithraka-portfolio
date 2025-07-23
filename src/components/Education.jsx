@@ -18,17 +18,19 @@ function Education() {
 
     return (
         <section className={styles.section} id="education">
-            <div className={styles.container}>
-                <h2 className={styles.title}>Education</h2>
-                <div className={styles.educationTimeline}>
-                    {educationData.map((item, index) => (
-                        <div key={index} className={styles.educationItem}>
-                            <h3 className={styles.degree}>{item.degree}</h3>
-                            <p className={styles.school}>{item.school}</p>
-                            <p className={styles.year}>{item.year}</p>
-                            <p className={styles.description}>{item.description}</p>
-                        </div>
-                    ))}
+            <div className="section-content">
+                <div className={styles.container}>
+                    <h2 className={styles.title}>Education</h2>
+                    <div className={styles.educationTimeline}>
+                        {educationData.map((item, index) => (
+                            <div key={index} className={styles.educationItem}>
+                                <h3 className={styles.degree}>{item.degree}</h3>
+                                <p className={styles.school}>{item.school}</p>
+                                <p className={styles.year}>{item.year}</p>
+                                <p className={styles.description}>{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
