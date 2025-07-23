@@ -24,11 +24,11 @@ function ParticlesBackground() {
             constructor() {
                 this.reset();
                 this.opacity = Math.random() * 0.6 + 0.2;
-                this.size = Math.random() * 4 + 1;
-                this.speed = Math.random() * 1.5 + 0.5; // Reduced speed
-                this.drift = (Math.random() - 0.5) * 0.3; // Slight horizontal drift
+                this.size = Math.random() * 2.5 + 0.5; // Smaller particles
+                this.speed = Math.random() * 0.8 + 0.2; // Much slower speed
+                this.drift = (Math.random() - 0.5) * 0.2; // Less horizontal drift
                 this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.01; // Slower rotation
+                this.rotationSpeed = (Math.random() - 0.5) * 0.005; // Much slower rotation
             }
 
             reset() {
@@ -104,11 +104,11 @@ function ParticlesBackground() {
             constructor() {
                 this.reset();
                 this.opacity = Math.random() * 0.4 + 0.1; // More subtle
-                this.size = Math.random() * 3 + 0.5; // Smaller
-                this.speed = Math.random() * 1 + 0.3; // Slower rising
-                this.drift = (Math.random() - 0.5) * 0.2; // Gentle drift
+                this.size = Math.random() * 2 + 0.3; // Even smaller
+                this.speed = Math.random() * 0.6 + 0.15; // Much slower rising
+                this.drift = (Math.random() - 0.5) * 0.15; // Less drift
                 this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.008; // Very slow rotation
+                this.rotationSpeed = (Math.random() - 0.5) * 0.003; // Very slow rotation
             }
 
             reset() {
