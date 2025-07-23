@@ -1,7 +1,8 @@
 .section {
-    padding: 120px 20px;
-    background: var(--primary-bg);
+    padding: 0;
+    background: none;
     position: relative;
+    min-height: 100vh;
 }
 
 .container {

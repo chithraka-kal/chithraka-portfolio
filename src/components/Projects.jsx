@@ -3,13 +3,14 @@ import styles from './Projects.module.css';
 function Projects() {
     return (
         <section className={styles.section} id="projects">
-            <div className={styles.container}>
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.title}>My Projects</h2>
-                    <p className={styles.subtitle}>
-                        A showcase of my recent work and personal projects
-                    </p>
-                </div>
+            <div className="section-content">
+                <div className={styles.container}>
+                    <div className={styles.sectionHeader}>
+                        <h2 className={styles.title}>My Projects</h2>
+                        <p className={styles.subtitle}>
+                            A showcase of my recent work and personal projects
+                        </p>
+                    </div>
                 <div className={styles.projectsGrid}>
                     <ProjectCard 
                         title="Portfolio Website" 
@@ -53,6 +54,7 @@ function Projects() {
                         </svg>
                     </a>
                 </div>
+            </div>
             </div>
         </section>
     );
