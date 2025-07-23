@@ -1,4 +1,5 @@
 import styles from './AboutMe.module.css';
+import profileImage from '../assets/profile.jpg';
 
 function AboutMe() {
     return (
@@ -9,7 +10,7 @@ function AboutMe() {
                     <div className={styles.content}>
                         <div className={styles.imageContainer}>
                             <img 
-                                src="./src/assets/profile.jpg" 
+                                src={profileImage} 
                                 alt="Chithraka Kalanamith Profile" 
                                 className={styles.profileImage}
                             />
