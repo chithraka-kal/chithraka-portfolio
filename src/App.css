@@ -132,3 +132,151 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* App Container */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sections Container for Layered Scrolling */
+.sections-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Layered Section Styling */
+.section-layer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--primary-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Content container for glass effect */
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(47, 129, 247, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Dark theme glass effect */
+[data-theme="dark"] .section-content {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(47, 129, 247, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glowing effect on hover */
+.section-content:hover {
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 80px rgba(47, 129, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .section-content:hover {
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(47, 129, 247, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* All sections have consistent styling */
+.section-layer[data-section="hero"] {
+  padding: 0;
+}
+
+.section-layer[data-section="hero"] .section-content {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  max-width: none;
+  padding: 0;
+}
+
+.section-layer[data-section="footer"] .section-content {
+  background: none;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  max-width: none;
+  padding: 0;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Section transition indicator */
+.section-indicator {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.section-dot.active {
+  background: var(--accent-color);
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4);
+}
+
+.section-dot:hover {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .section-indicator {
+    right: 15px;
+  }
+  
+  .section-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
