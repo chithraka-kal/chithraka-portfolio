@@ -9,11 +9,12 @@ function Contact() {
 
     return (
         <section className={styles.section} id="contact">
-            <div className={styles.container}>
-                <h2 className={styles.title}>Get In Touch</h2>
-                <p className={styles.subtitle}>
-                    Have a project in mind or just want to say hello? I'd love to hear from you!
-                </p>
+            <div className="section-content">
+                <div className={styles.container}>
+                    <h2 className={styles.title}>Get In Touch</h2>
+                    <p className={styles.subtitle}>
+                        Have a project in mind or just want to say hello? I'd love to hear from you!
+                    </p>
                 
                 <form className={styles.contactForm} onSubmit={handleSubmit}>
                     <div className={styles.formGroup}>
@@ -81,6 +82,7 @@ function Contact() {
                         <div className={styles.contactValue}>Sri Lanka</div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     );

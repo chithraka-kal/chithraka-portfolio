@@ -1,7 +1,7 @@
 .section {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
+    padding: 0;
+    background: none;
+    color: var(--text-color);
 }
 
 .container {
