@@ -44,7 +44,7 @@ function Footer() {
                                     </div>
                                     <div className={styles.cardContent}>
                                         <h3>Email</h3>
-                                        <p>isharamadunika9@gmail.com</p>
+                                        <p>chithrakakalanamith@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -56,7 +56,7 @@ function Footer() {
                                     </div>
                                     <div className={styles.cardContent}>
                                         <h3>Phone</h3>
-                                        <p>+94 77 026 4992</p>
+                                        <p>+94 77 312 6764</p>
                                     </div>
                                 </div>
 
@@ -80,7 +80,7 @@ function Footer() {
                                     </div>
                                     <div className={styles.cardContent}>
                                         <h3>Website</h3>
-                                        <p>IsharaMadunika.lk</p>
+                                        <p>https://chithraka-dev.netlify.app/</p>
                                     </div>
                                 </div>
                             </div>
