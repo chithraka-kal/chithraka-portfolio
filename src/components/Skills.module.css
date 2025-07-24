@@ -18,11 +18,11 @@
 
 .sectionHeader {
     text-align: left;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .title {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
     color: var(--text-color);
     margin: 0;
@@ -32,7 +32,7 @@
 .stackContainer {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 50px;
 }
 
 .stackCategory {
@@ -40,10 +40,10 @@
 }
 
 .categoryTitle {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
     font-weight: 700;
     color: var(--text-color);
-    margin: 0 0 40px 0;
+    margin: 0 0 30px 0;
     letter-spacing: -0.02em;
     text-transform: uppercase;
 }
@@ -102,7 +102,7 @@
     }
     
     .stackContainer {
-        gap: 60px;
+        gap: 40px;
     }
     
     .technologiesFlow {
