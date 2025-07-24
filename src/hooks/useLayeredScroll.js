@@ -5,7 +5,8 @@ export const useLayeredScroll = () => {
         let isScrolling = false;
         let currentSection = 0;
         let scrollTimeout = null;
-        const sections = document.querySelectorAll('.section-layer');
+        // Exclude hero section from scroll snapping
+        const sections = document.querySelectorAll('.section-layer:not([data-section="hero"])');
         
         const snapToSection = (sectionIndex) => {
             if (sectionIndex >= 0 && sectionIndex < sections.length) {
