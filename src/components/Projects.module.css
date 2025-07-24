@@ -4,7 +4,7 @@
     padding: 40px 0;
     background: var(--color-canvas-default, #ffffff);
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible */
 }
 
 .fullWidthContainer {
@@ -101,6 +101,8 @@
 .sectionHeader {
     text-align: center;
     margin-bottom: 35px;
+    position: relative; /* Ensure proper positioning */
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 .sectionTag {
@@ -110,6 +112,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0 0 16px 0;
+    position: relative; /* Ensure proper positioning */
 }
 
 .title {
@@ -118,6 +121,8 @@
     color: var(--color-fg-default, #1f2328);
     line-height: 1.1;
     margin: 0 0 16px 0;
+    position: relative; /* Ensure proper positioning */
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 .subtitle {

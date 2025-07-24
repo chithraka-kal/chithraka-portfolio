@@ -1,21 +1,29 @@
 /* Education Section */
 .section {
     min-height: 100vh;
-    padding: 60px 0;
+    padding: 4rem 0;
     background: var(--color-canvas-default, #ffffff);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* Ensure content isn't clipped */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 2rem;
+    width: 100%;
+    overflow: visible; /* Ensure content isn't clipped */
 }
 
 /* Section Header */
 .sectionHeader {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
+    position: relative; /* Ensure proper positioning */
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 .sectionTag {
@@ -25,14 +33,17 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0 0 16px 0;
+    position: relative; /* Ensure proper positioning */
 }
 
 .title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--color-fg-default, #1f2328);
     line-height: 1.1;
-    margin: 0 0 20px 0;
+    margin: 0 0 1rem 0;
+    position: relative; /* Ensure proper positioning */
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 .subtitle {
@@ -69,7 +80,7 @@
 .timelineItem {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
     position: relative;
 }
 
@@ -121,8 +132,8 @@
 .educationCard {
     background: var(--color-canvas-subtle, #f6f8fa);
     border: 1px solid var(--color-border-default, #d1d9e0);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 12px;
+    padding: 1.5rem;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -157,7 +168,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .yearBadge {
@@ -261,19 +272,27 @@
     }
     
     .educationCard {
-        padding: 24px;
+        padding: 1rem;
     }
     
     .cardHeader {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 0.5rem;
+    }
+    
+    .timelineItem {
+        margin-bottom: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
+    .section {
+        padding: 1.5rem 0;
+    }
+    
     .timelineItem {
-        margin-bottom: 30px;
+        margin-bottom: 1rem;
     }
     
     .educationTimeline::before {
@@ -296,23 +315,48 @@
     }
     
     .educationCard {
-        padding: 20px;
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .sectionHeader {
+        margin-bottom: 1.5rem;
     }
 }
 
 @media (max-width: 1200px) {
     .container {
-        padding: 0 40px;
+        padding: 0 2rem;
     }
     
     .title {
-        font-size: 3rem;
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
     }
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 80px 0;
+        padding: 2rem 0;
+        min-height: auto;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .sectionHeader {
+        margin-bottom: 2rem;
     }
     
     .container {

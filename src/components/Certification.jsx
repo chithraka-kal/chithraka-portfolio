@@ -85,7 +85,7 @@ function Certification() {
                 <div className={styles.sectionHeader}>
                     <p className={styles.sectionTag}>ACHIEVEMENTS</p>
                     <h2 className={styles.title}>
-                        Certifications & <br /> Credentials
+                        Certifications <br />
                     </h2>
                     <p className={styles.subtitle}>
                         Professional certifications and credentials that validate my expertise in modern web development technologies.

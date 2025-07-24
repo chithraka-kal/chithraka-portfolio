@@ -14,7 +14,7 @@ import Certification from './components/Certification';
 import Footer from './components/Footer';
 
 function AppContent() {
-  useLayeredScroll();
+  useLayeredScroll(); // Re-enabled with very conservative settings
 
   return (
     <div className="app-container">

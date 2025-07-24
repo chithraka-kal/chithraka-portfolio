@@ -150,7 +150,7 @@ a:hover {
   position: relative;
   width: 100%;
   height: auto;
-  transform: translateZ(0); /* Force hardware acceleration */
+  /* Remove transform that might interfere with positioning */
 }
 
 /* Layered Section Styling */
@@ -164,14 +164,20 @@ a:hover {
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
-  will-change: transform; /* Optimize for animations */
-  margin-bottom: 0; /* Ensure no gaps between sections */
-  z-index: 20; /* Higher than hero section */
+  margin-bottom: 0;
+  z-index: 20;
+  overflow: visible; /* Ensure content isn't clipped */
 }
 
 /* First section after hero should start after viewport height */
 .section-layer:first-of-type {
-  margin-top: 100vh;
+  margin-top: 100vh; /* Restore space for fixed hero section */
+}
+
+/* Special handling for footer section */
+.section-layer[data-section="footer"] {
+  padding: 0;
+  min-height: auto;
 }
 
 /* Content container for glass effect */
@@ -189,7 +195,7 @@ a:hover {
     0 0 60px rgba(47, 129, 247, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible */
   transition: all 0.3s ease;
 }
 
@@ -252,7 +258,7 @@ a:hover {
 
 /* Smooth scrolling for the entire page */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Restored smooth scrolling */
   overflow-x: hidden;
 }
 

@@ -5,35 +5,35 @@ export const useLayeredScroll = () => {
         let isScrolling = false;
         let currentSection = 0;
         let scrollTimeout = null;
-        // Exclude hero section from scroll snapping
         const sections = document.querySelectorAll('.section-layer:not([data-section="hero"])');
         
         const snapToSection = (sectionIndex) => {
             if (sectionIndex >= 0 && sectionIndex < sections.length) {
                 const targetSection = sections[sectionIndex];
-                
-                // Use the section's offsetTop for accurate positioning
                 const targetTop = targetSection.offsetTop;
                 
-                // Use requestAnimationFrame for smoother scrolling
-                const smoothScroll = () => {
-                    window.scrollTo({
-                        top: targetTop,
-                        behavior: 'smooth'
-                    });
-                };
-                
-                requestAnimationFrame(smoothScroll);
+                window.scrollTo({
+                    top: targetTop,
+                    behavior: 'smooth'
+                });
                 currentSection = sectionIndex;
             }
         };
 
+        // Very conservative wheel handling - only engage on very large, intentional scrolls
         const handleWheel = (event) => {
-            if (isScrolling) return;
+            // Only engage for very large scroll movements (trackpad/mouse wheel full swipes)
+            if (Math.abs(event.deltaY) < 150) return; // Increased threshold significantly
             
-            event.preventDefault();
+            if (isScrolling) {
+                return; // Don't prevent default, allow normal scrolling
+            }
             
-            // Clear any existing timeout
+            // Only prevent default for very large scroll movements
+            if (Math.abs(event.deltaY) > 200) {
+                event.preventDefault();
+            }
+            
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout);
             }
@@ -44,22 +44,18 @@ export const useLayeredScroll = () => {
             const scrollDirection = delta > 0 ? 1 : -1;
             
             let targetSection = currentSection + scrollDirection;
-            
-            // Allow scrolling to all sections including footer
             const maxScrollableSection = sections.length - 1;
             
-            // Ensure we don't go past the boundaries
             targetSection = Math.max(0, Math.min(targetSection, maxScrollableSection));
             
-            // Only snap if we're actually changing sections
             if (targetSection !== currentSection) {
                 snapToSection(targetSection);
             }
             
-            // Reduced timeout for more responsive scrolling
+            // Longer timeout for less aggressive snapping
             scrollTimeout = setTimeout(() => {
                 isScrolling = false;
-            }, 600);
+            }, 1000);
         };
 
         const handleKeyDown = (event) => {
@@ -96,7 +92,7 @@ export const useLayeredScroll = () => {
                 snapToSection(targetSection);
                 scrollTimeout = setTimeout(() => {
                     isScrolling = false;
-                }, 600);
+                }, 1000);
             }
         };
 
@@ -104,19 +100,16 @@ export const useLayeredScroll = () => {
             const scrollTop = window.pageYOffset;
             let newSection = 0;
             
-            // Find which section we're currently in based on scroll position
             for (let i = 0; i < sections.length; i++) {
                 const sectionTop = sections[i].offsetTop;
                 const sectionHeight = sections[i].offsetHeight;
                 const sectionBottom = sectionTop + sectionHeight;
                 
-                // Check if we're in this section (with some tolerance)
-                if (scrollTop >= sectionTop - 100 && scrollTop < sectionBottom - 100) {
+                if (scrollTop >= sectionTop - 200 && scrollTop < sectionBottom - 200) {
                     newSection = i;
                     break;
                 }
                 
-                // If we're past all sections, we're in the last one
                 if (i === sections.length - 1) {
                     newSection = i;
                 }
@@ -129,23 +122,21 @@ export const useLayeredScroll = () => {
 
         const handleScroll = () => {
             if (!isScrolling) {
-                // Debounce the section update for better performance
                 if (scrollTimeout) {
                     clearTimeout(scrollTimeout);
                 }
                 
                 scrollTimeout = setTimeout(() => {
                     updateCurrentSection();
-                }, 50);
+                }, 100);
             }
         };
 
         // Initial setup
         currentSection = 0;
-        
-        // Initialize current section based on scroll position
         updateCurrentSection();
         
+        // Use passive: false only for wheel events that need preventDefault
         window.addEventListener('wheel', handleWheel, { passive: false });
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('scroll', handleScroll, { passive: true });
