@@ -4,18 +4,25 @@ export const useLayeredScroll = () => {
     useEffect(() => {
         let isScrolling = false;
         let currentSection = 0;
+        let scrollTimeout = null;
         const sections = document.querySelectorAll('.section-layer');
         
         const snapToSection = (sectionIndex) => {
             if (sectionIndex >= 0 && sectionIndex < sections.length) {
                 const targetSection = sections[sectionIndex];
-                const targetTop = sectionIndex * window.innerHeight;
                 
-                window.scrollTo({
-                    top: targetTop,
-                    behavior: 'smooth'
-                });
+                // Use the section's offsetTop for accurate positioning
+                const targetTop = targetSection.offsetTop;
                 
+                // Use requestAnimationFrame for smoother scrolling
+                const smoothScroll = () => {
+                    window.scrollTo({
+                        top: targetTop,
+                        behavior: 'smooth'
+                    });
+                };
+                
+                requestAnimationFrame(smoothScroll);
                 currentSection = sectionIndex;
             }
         };
@@ -24,6 +31,12 @@ export const useLayeredScroll = () => {
             if (isScrolling) return;
             
             event.preventDefault();
+            
+            // Clear any existing timeout
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
             isScrolling = true;
             
             const delta = event.deltaY;
@@ -31,33 +44,28 @@ export const useLayeredScroll = () => {
             
             let targetSection = currentSection + scrollDirection;
             
-            // Don't include footer in snap scrolling (last section should be contact)
-            const maxScrollableSection = sections.length - 2; // Exclude footer
+            // Allow scrolling to all sections including footer
+            const maxScrollableSection = sections.length - 1;
             
             // Ensure we don't go past the boundaries
-            if (targetSection > maxScrollableSection) {
-                targetSection = maxScrollableSection;
-            }
-            
-            if (targetSection < 0) {
-                targetSection = 0;
-            }
+            targetSection = Math.max(0, Math.min(targetSection, maxScrollableSection));
             
             // Only snap if we're actually changing sections
             if (targetSection !== currentSection) {
                 snapToSection(targetSection);
             }
             
-            setTimeout(() => {
+            // Reduced timeout for more responsive scrolling
+            scrollTimeout = setTimeout(() => {
                 isScrolling = false;
-            }, 800);
+            }, 600);
         };
 
         const handleKeyDown = (event) => {
             if (isScrolling) return;
             
             let targetSection = currentSection;
-            const maxScrollableSection = sections.length - 2; // Exclude footer
+            const maxScrollableSection = sections.length - 1;
             
             switch (event.key) {
                 case 'ArrowDown':
@@ -85,34 +93,68 @@ export const useLayeredScroll = () => {
             if (targetSection !== currentSection) {
                 isScrolling = true;
                 snapToSection(targetSection);
-                setTimeout(() => {
+                scrollTimeout = setTimeout(() => {
                     isScrolling = false;
-                }, 800);
+                }, 600);
             }
         };
 
         const updateCurrentSection = () => {
             const scrollTop = window.pageYOffset;
-            const newSection = Math.round(scrollTop / window.innerHeight);
-            if (newSection !== currentSection && newSection >= 0 && newSection < sections.length) {
+            let newSection = 0;
+            
+            // Find which section we're currently in based on scroll position
+            for (let i = 0; i < sections.length; i++) {
+                const sectionTop = sections[i].offsetTop;
+                const sectionHeight = sections[i].offsetHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+                
+                // Check if we're in this section (with some tolerance)
+                if (scrollTop >= sectionTop - 100 && scrollTop < sectionBottom - 100) {
+                    newSection = i;
+                    break;
+                }
+                
+                // If we're past all sections, we're in the last one
+                if (i === sections.length - 1) {
+                    newSection = i;
+                }
+            }
+            
+            if (newSection !== currentSection) {
                 currentSection = newSection;
             }
         };
 
         const handleScroll = () => {
             if (!isScrolling) {
-                updateCurrentSection();
+                // Debounce the section update for better performance
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
+                }
+                
+                scrollTimeout = setTimeout(() => {
+                    updateCurrentSection();
+                }, 50);
             }
         };
 
         // Initial setup
         currentSection = 0;
         
+        // Initialize current section based on scroll position
+        updateCurrentSection();
+        
         window.addEventListener('wheel', handleWheel, { passive: false });
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         return () => {
+            // Clean up timeouts
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            
             window.removeEventListener('wheel', handleWheel);
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('scroll', handleScroll);
