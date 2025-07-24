@@ -23,22 +23,22 @@ function AppContent() {
       <SectionIndicator />
       <HeroSection />
       <div className="sections-container">
-        <section className="section-layer" data-section="about">
+        <section id="about" className="section-layer" data-section="about">
           <AboutMe />
         </section>
-        <section className="section-layer" data-section="skills">
+        <section id="skills" className="section-layer" data-section="skills">
           <Skills />
         </section>
-        <section className="section-layer" data-section="projects">
+        <section id="projects" className="section-layer" data-section="projects">
           <Projects />
         </section>
-        <section className="section-layer" data-section="education">
+        <section id="education" className="section-layer" data-section="education">
           <Education />
         </section>
-        <section className="section-layer" data-section="certification">
+        <section id="certification" className="section-layer" data-section="certification">
           <Certification />
         </section>
-        <section className="section-layer" data-section="footer">
+        <section id="footer" className="section-layer" data-section="footer">
           <Footer />
         </section>
       </div>
