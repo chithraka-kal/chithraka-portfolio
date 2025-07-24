@@ -169,7 +169,7 @@ function Footer() {
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         className={styles.formTextarea}
-                                        rows="5"
+                                        rows="3"
                                         required
                                     ></textarea>
                                 </div>
