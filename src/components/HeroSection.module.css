@@ -9,8 +9,8 @@
     align-items: center;
     justify-content: center;
     background: var(--gradient-canvas);
-    padding: 80px 20px 120px;
-    overflow: hidden;
+    padding: 120px 20px 100px;
+    overflow: visible;
     z-index: 0;
 }
 
@@ -40,8 +40,8 @@
     z-index: 2;
     transition: transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out;
     transform-origin: center center;
-    max-height: 100%;
-    overflow: hidden;
+    max-height: none;
+    overflow: visible;
 }
 
 .heroContent {
@@ -325,23 +325,37 @@
     .ctaButtons {
         justify-content: center;
     }
+    
+    .socialLinks {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 640px) {
     .heroSection {
-        padding: 40px 15px 80px;
+        padding: 40px 15px 60px;
         height: 100vh;
         max-height: 100vh;
+        overflow: visible;
     }
     
     .container {
         gap: 30px;
-        height: 100%;
+        height: auto;
+        min-height: 100%;
+        max-height: none;
+        overflow: visible;
     }
     
     .ctaButtons {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .socialLinks {
+        justify-content: center;
+        margin-top: 24px;
+        gap: 16px;
     }
     
     .primaryButton,

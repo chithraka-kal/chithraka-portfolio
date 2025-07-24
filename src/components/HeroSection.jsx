@@ -4,10 +4,11 @@ import styles from './HeroSection.module.css';
 function HeroSection() {
     const heroRef = useRef(null);
     const contentRef = useRef(null);
+    const socialLinksRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!heroRef.current || !contentRef.current) return;
+            if (!heroRef.current || !contentRef.current || !socialLinksRef.current) return;
 
             const scrolled = window.pageYOffset;
             const windowHeight = window.innerHeight;
@@ -21,10 +22,32 @@ function HeroSection() {
             // Ensure opacity doesn't go below 0
             const finalOpacity = Math.max(opacity, 0);
 
-            // Apply transformations
+            // Apply transformations to main content
             contentRef.current.style.transform = `scale(${scale})`;
             contentRef.current.style.opacity = finalOpacity;
             contentRef.current.style.filter = `blur(${blur}px)`;
+
+            // Handle social icons movement
+            if (scrolled > 50) {
+                // Move social icons to bottom-left and make them vertical
+                socialLinksRef.current.style.position = 'fixed';
+                socialLinksRef.current.style.left = '30px';
+                socialLinksRef.current.style.bottom = '30px';
+                socialLinksRef.current.style.flexDirection = 'column';
+                socialLinksRef.current.style.gap = '16px';
+                socialLinksRef.current.style.zIndex = '1000';
+                socialLinksRef.current.style.transform = 'translateY(0)';
+                socialLinksRef.current.style.opacity = '1';
+                socialLinksRef.current.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            } else {
+                // Reset to original position
+                socialLinksRef.current.style.position = 'static';
+                socialLinksRef.current.style.flexDirection = 'row';
+                socialLinksRef.current.style.gap = '20px';
+                socialLinksRef.current.style.zIndex = 'auto';
+                socialLinksRef.current.style.transform = 'none';
+                socialLinksRef.current.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -64,7 +87,7 @@ function HeroSection() {
                                 <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
-                        <a href="mailto:chithraka.dev@gmail.com" className={styles.socialLink}>
+                        <a href="mailto:chithrakakalanamith@gmail.com" className={styles.socialLink}>
                             <svg viewBox="0 0 24 24" className={styles.socialIcon}>
                                 <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.781L12 12.023l9.583-8.202h.781A1.636 1.636 0 0 1 24 5.457z"/>
                             </svg>
