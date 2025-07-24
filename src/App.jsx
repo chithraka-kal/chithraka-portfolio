@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { useLayeredScroll } from './hooks/useLayeredScroll';

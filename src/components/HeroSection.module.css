@@ -1,3 +1,58 @@
+/* Custom Cursor */
+.customCursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    opacity: 0;
+    box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.7),
+        0 0 45px rgba(255, 255, 255, 0.5);
+}
+
+.customCursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+}
+
+.trailDot {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 
+        0 0 12px rgba(255, 255, 255, 0.6),
+        0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+/* Hide default cursor on hero section */
+.heroSection {
+    cursor: none;
+}
+
+.heroSection * {
+    cursor: none !important;
+}
+
 .heroSection {
     position: fixed;
     top: 0;
@@ -96,6 +151,28 @@
     margin-top: 32px;
     justify-content: flex-start;
     align-items: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When social links are fixed */
+.socialLinks.fixed {
+    position: fixed !important;
+    left: 30px !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    z-index: 99999 !important;
+    background: rgba(var(--card-bg-rgb), 0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(var(--border-rgb), 0.2);
+    box-shadow: var(--shadow-large);
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .socialLink {
@@ -113,6 +190,7 @@
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    z-index: inherit;
 }
 
 .socialLink::before {
@@ -161,6 +239,12 @@
 [data-theme="dark"] .socialLink:hover {
     background: rgba(var(--accent-rgb), 0.1);
     border-color: rgba(var(--accent-rgb), 0.3);
+}
+
+/* Dark theme for fixed social links */
+[data-theme="dark"] .socialLinks.fixed {
+    background: rgba(22, 27, 34, 0.9);
+    border-color: rgba(48, 54, 61, 0.3);
 }
 
 .primaryButton,
@@ -329,6 +413,15 @@
     .socialLinks {
         justify-content: center;
     }
+    
+    /* Fixed social links responsive adjustment */
+    .socialLinks.fixed {
+        left: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        padding: 12px;
+        z-index: 9999 !important;
+    }
 }
 
 @media (max-width: 640px) {
@@ -356,6 +449,26 @@
         justify-content: center;
         margin-top: 24px;
         gap: 16px;
+    }
+    
+    /* Fixed social links mobile adjustment */
+    .socialLinks.fixed {
+        left: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        padding: 10px;
+        gap: 12px !important;
+        z-index: 9999 !important;
+    }
+    
+    .socialLinks.fixed .socialLink {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .socialLinks.fixed .socialIcon {
+        width: 20px !important;
+        height: 20px !important;
     }
     
     .primaryButton,

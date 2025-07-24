@@ -224,7 +224,6 @@ a:hover {
 
 /* Add spacing for other sections to slide over hero */
 .section-layer[data-section="about"] {
-  margin-top: 100vh; /* Start after full viewport height for proper transition */
   z-index: 15; /* Above hero when sliding over */
 }
 

@@ -4,11 +4,147 @@ import styles from './HeroSection.module.css';
 function HeroSection() {
     const heroRef = useRef(null);
     const contentRef = useRef(null);
-    const socialLinksRef = useRef(null);
+    const cursorRef = useRef(null);
+    const trailRefs = useRef([]);
+    const mousePosition = useRef({ x: 0, y: 0 });
+    const trailPositions = useRef(Array(5).fill().map(() => ({ x: 0, y: 0 })));
+    const animationId = useRef(null);
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            mousePosition.current = { x: e.clientX, y: e.clientY };
+            
+            if (cursorRef.current) {
+                cursorRef.current.style.left = e.clientX + 'px';
+                cursorRef.current.style.top = e.clientY + 'px';
+            }
+        };
+
+        const updateTrail = () => {
+            // Smooth interpolation for trail positions with closer spacing
+            const lerpFactor = 0.25; // Higher value for more responsive, closer trail
+            
+            // Update first trail position to mouse position with smoothing
+            trailPositions.current[0].x += (mousePosition.current.x - trailPositions.current[0].x) * lerpFactor;
+            trailPositions.current[0].y += (mousePosition.current.y - trailPositions.current[0].y) * lerpFactor;
+            
+            // Update subsequent trail positions with progressive delay
+            for (let i = 1; i < trailPositions.current.length; i++) {
+                const targetX = trailPositions.current[i - 1].x;
+                const targetY = trailPositions.current[i - 1].y;
+                const currentLerpFactor = lerpFactor * (0.9 - i * 0.1); // Less spread between dots
+                
+                trailPositions.current[i].x += (targetX - trailPositions.current[i].x) * currentLerpFactor;
+                trailPositions.current[i].y += (targetY - trailPositions.current[i].y) * currentLerpFactor;
+            }
+
+            // Update trail elements
+            trailRefs.current.forEach((trail, index) => {
+                if (trail && trailPositions.current[index]) {
+                    trail.style.left = trailPositions.current[index].x + 'px';
+                    trail.style.top = trailPositions.current[index].y + 'px';
+                }
+            });
+
+            animationId.current = requestAnimationFrame(updateTrail);
+        };
+
+        const handleMouseEnter = () => {
+            if (cursorRef.current) {
+                cursorRef.current.style.opacity = '1';
+            }
+            trailRefs.current.forEach(trail => {
+                if (trail) trail.style.opacity = '1';
+            });
+        };
+
+        const handleMouseLeave = () => {
+            if (cursorRef.current) {
+                cursorRef.current.style.opacity = '0';
+            }
+            trailRefs.current.forEach(trail => {
+                if (trail) trail.style.opacity = '0';
+            });
+        };
+
+        const handleLinkHover = () => {
+            if (cursorRef.current) {
+                cursorRef.current.style.transform = 'translate(-50%, -50%) scale(2.5)';
+                cursorRef.current.style.boxShadow = `
+                    0 0 5px rgba(255, 255, 255, 0.4),
+                    0 0 10px rgba(255, 255, 255, 0.3),
+                    0 0 15px rgba(255, 255, 255, 0.2)
+                `;
+            }
+            // Also affect trail dots
+            trailRefs.current.forEach((trail, index) => {
+                if (trail) {
+                    const baseScale = Math.max(0.3, (5 - index) / 6);
+                    trail.style.transform = `translate(-50%, -50%) scale(${baseScale * 1.8})`;
+                    trail.style.boxShadow = `
+                        0 0 4px rgba(255, 255, 255, 0.3),
+                        0 0 8px rgba(255, 255, 255, 0.2)
+                    `;
+                }
+            });
+        };
+
+        const handleLinkLeave = () => {
+            if (cursorRef.current) {
+                cursorRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorRef.current.style.boxShadow = `
+                    0 0 15px rgba(255, 255, 255, 0.9),
+                    0 0 30px rgba(255, 255, 255, 0.7),
+                    0 0 45px rgba(255, 255, 255, 0.5)
+                `;
+            }
+            // Reset trail dots
+            trailRefs.current.forEach((trail, index) => {
+                if (trail) {
+                    const baseScale = Math.max(0.3, (5 - index) / 6);
+                    trail.style.transform = `translate(-50%, -50%) scale(${baseScale})`;
+                    trail.style.boxShadow = `
+                        0 0 12px rgba(255, 255, 255, 0.6),
+                        0 0 24px rgba(255, 255, 255, 0.4)
+                    `;
+                }
+            });
+        };
+
+        // Add event listeners
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseenter', handleMouseEnter);
+        document.addEventListener('mouseleave', handleMouseLeave);
+
+        // Add hover effects for interactive elements
+        const links = document.querySelectorAll('a, button');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', handleLinkHover);
+            link.addEventListener('mouseleave', handleLinkLeave);
+        });
+
+        // Start trail animation
+        updateTrail();
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseenter', handleMouseEnter);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+            
+            links.forEach(link => {
+                link.removeEventListener('mouseenter', handleLinkHover);
+                link.removeEventListener('mouseleave', handleLinkLeave);
+            });
+            
+            if (animationId.current) {
+                cancelAnimationFrame(animationId.current);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!heroRef.current || !contentRef.current || !socialLinksRef.current) return;
+            if (!heroRef.current || !contentRef.current) return;
 
             const scrolled = window.pageYOffset;
             const windowHeight = window.innerHeight;
@@ -26,28 +162,6 @@ function HeroSection() {
             contentRef.current.style.transform = `scale(${scale})`;
             contentRef.current.style.opacity = finalOpacity;
             contentRef.current.style.filter = `blur(${blur}px)`;
-
-            // Handle social icons movement
-            if (scrolled > 50) {
-                // Move social icons to bottom-left and make them vertical
-                socialLinksRef.current.style.position = 'fixed';
-                socialLinksRef.current.style.left = '30px';
-                socialLinksRef.current.style.bottom = '30px';
-                socialLinksRef.current.style.flexDirection = 'column';
-                socialLinksRef.current.style.gap = '16px';
-                socialLinksRef.current.style.zIndex = '1000';
-                socialLinksRef.current.style.transform = 'translateY(0)';
-                socialLinksRef.current.style.opacity = '1';
-                socialLinksRef.current.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            } else {
-                // Reset to original position
-                socialLinksRef.current.style.position = 'static';
-                socialLinksRef.current.style.flexDirection = 'row';
-                socialLinksRef.current.style.gap = '20px';
-                socialLinksRef.current.style.zIndex = 'auto';
-                socialLinksRef.current.style.transform = 'none';
-                socialLinksRef.current.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -55,7 +169,24 @@ function HeroSection() {
     }, []);
 
     return (
-        <section className={styles.heroSection} id="home" ref={heroRef}>
+        <>
+            {/* Custom Cursor */}
+            <div className={styles.customCursor} ref={cursorRef}></div>
+            
+            {/* Trail Elements */}
+            {Array(5).fill().map((_, index) => (
+                <div 
+                    key={index}
+                    className={styles.trailDot}
+                    ref={el => trailRefs.current[index] = el}
+                    style={{
+                        opacity: Math.max(0.2, (5 - index) / 6),
+                        transform: `translate(-50%, -50%) scale(${Math.max(0.4, (5 - index) / 6)})`
+                    }}
+                ></div>
+            ))}
+            
+            <section className={styles.heroSection} id="home" ref={heroRef}>
             <div className={styles.container} ref={contentRef}>
                 <div className={styles.heroContent}>
                     <h1 className={styles.title}>
@@ -122,6 +253,7 @@ function HeroSection() {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 
