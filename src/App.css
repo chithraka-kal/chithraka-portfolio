@@ -166,7 +166,12 @@ a:hover {
   box-sizing: border-box;
   will-change: transform; /* Optimize for animations */
   margin-bottom: 0; /* Ensure no gaps between sections */
-  z-index: 1; /* Establish stacking context */
+  z-index: 20; /* Higher than hero section */
+}
+
+/* First section after hero should start after viewport height */
+.section-layer:first-of-type {
+  margin-top: 100vh;
 }
 
 /* Content container for glass effect */
@@ -215,18 +220,12 @@ a:hover {
 }
 
 /* All sections have consistent styling */
-.section-layer[data-section="hero"] {
-  padding: 0;
-  padding-top: 80px; /* Account for fixed navbar */
-}
+/* Hero section is now handled directly by HeroSection component */
 
-.section-layer[data-section="hero"] .section-content {
-  background: none;
-  backdrop-filter: none;
-  border: none;
-  box-shadow: none;
-  max-width: none;
-  padding: 0;
+/* Add spacing for other sections to slide over hero */
+.section-layer[data-section="about"] {
+  margin-top: 100vh; /* Start after full viewport height for proper transition */
+  z-index: 15; /* Above hero when sliding over */
 }
 
 .section-layer[data-section="footer"] {

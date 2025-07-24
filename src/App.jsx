@@ -21,10 +21,8 @@ function AppContent() {
       <ParticlesBackground />
       <Navbar />
       <SectionIndicator />
+      <HeroSection />
       <div className="sections-container">
-        <section className="section-layer" data-section="hero">
-          <HeroSection />
-        </section>
         <section className="section-layer" data-section="about">
           <AboutMe />
         </section>
