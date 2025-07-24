@@ -31,24 +31,29 @@ function Education() {
                 <div className={styles.sectionHeader}>
                     <p className={styles.sectionTag}>MY JOURNEY</p>
                     <h2 className={styles.title}>
-                        Education & <br /> Learning Path
+                        Education<br />
                     </h2>
                     <p className={styles.subtitle}>
                         My academic background and continuous learning journey in technology and software development.
                     </p>
                 </div>
 
-                <div className={styles.educationGrid}>
+                <div className={styles.educationTimeline}>
                     {educationData.map((item, index) => (
-                        <div key={index} className={styles.educationCard}>
-                            <div className={styles.cardHeader}>
-                                <div className={styles.yearBadge}>{item.year}</div>
-                                <div className={styles.gpaBadge}>{item.gpa}</div>
+                        <div key={index} className={styles.timelineItem}>
+                            <div className={styles.timelineNode}>
+                                <div className={styles.nodeCircle}></div>
                             </div>
-                            <div className={styles.cardContent}>
-                                <h3 className={styles.degree}>{item.degree}</h3>
-                                <p className={styles.school}>{item.school}</p>
-                                <p className={styles.description}>{item.description}</p>
+                            <div className={styles.educationCard}>
+                                <div className={styles.cardHeader}>
+                                    <div className={styles.yearBadge}>{item.year}</div>
+                                    <div className={styles.gpaBadge}>{item.gpa}</div>
+                                </div>
+                                <div className={styles.cardContent}>
+                                    <h3 className={styles.degree}>{item.degree}</h3>
+                                    <p className={styles.school}>{item.school}</p>
+                                    <p className={styles.description}>{item.description}</p>
+                                </div>
                             </div>
                         </div>
                     ))}

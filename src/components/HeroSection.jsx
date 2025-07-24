@@ -70,10 +70,12 @@ function HeroSection() {
         const handleLinkHover = () => {
             if (cursorRef.current) {
                 cursorRef.current.style.transform = 'translate(-50%, -50%) scale(2.5)';
+                cursorRef.current.style.opacity = '0.6'; // More transparent
+                cursorRef.current.style.background = 'rgba(255, 255, 255, 0.5)'; // More transparent background
                 cursorRef.current.style.boxShadow = `
-                    0 0 5px rgba(255, 255, 255, 0.4),
-                    0 0 10px rgba(255, 255, 255, 0.3),
-                    0 0 15px rgba(255, 255, 255, 0.2)
+                    0 0 5px rgba(255, 255, 255, 0.3),
+                    0 0 10px rgba(255, 255, 255, 0.2),
+                    0 0 15px rgba(255, 255, 255, 0.1)
                 `;
             }
             // Also affect trail dots
@@ -81,9 +83,10 @@ function HeroSection() {
                 if (trail) {
                     const baseScale = Math.max(0.3, (5 - index) / 6);
                     trail.style.transform = `translate(-50%, -50%) scale(${baseScale * 1.8})`;
+                    trail.style.opacity = `${Math.max(0.1, (5 - index) / 8)}`; // More transparent trail
                     trail.style.boxShadow = `
-                        0 0 4px rgba(255, 255, 255, 0.3),
-                        0 0 8px rgba(255, 255, 255, 0.2)
+                        0 0 4px rgba(255, 255, 255, 0.2),
+                        0 0 8px rgba(255, 255, 255, 0.1)
                     `;
                 }
             });
@@ -92,6 +95,8 @@ function HeroSection() {
         const handleLinkLeave = () => {
             if (cursorRef.current) {
                 cursorRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorRef.current.style.opacity = '1'; // Reset opacity
+                cursorRef.current.style.background = 'rgba(255, 255, 255, 0.95)'; // Reset background
                 cursorRef.current.style.boxShadow = `
                     0 0 15px rgba(255, 255, 255, 0.9),
                     0 0 30px rgba(255, 255, 255, 0.7),
@@ -103,6 +108,7 @@ function HeroSection() {
                 if (trail) {
                     const baseScale = Math.max(0.3, (5 - index) / 6);
                     trail.style.transform = `translate(-50%, -50%) scale(${baseScale})`;
+                    trail.style.opacity = `${Math.max(0.2, (5 - index) / 6)}`; // Reset trail opacity
                     trail.style.boxShadow = `
                         0 0 12px rgba(255, 255, 255, 0.6),
                         0 0 24px rgba(255, 255, 255, 0.4)

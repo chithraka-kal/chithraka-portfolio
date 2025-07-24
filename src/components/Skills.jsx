@@ -1,63 +1,90 @@
 import styles from './Skills.module.css';
 
 function Skills() {
-    const stackCategories = [
-        {
-            title: "FRONTEND",
-            technologies: [
-                { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-                { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-                { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-                { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-                { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-                { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-                { name: "Zustand", icon: "🐻" },
-                { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
-                { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
-                { name: "Styled-Components", icon: "�" }
-            ]
-        },
-        {
-            title: "BACKEND",
-            technologies: [
-                { name: "Supabase", icon: "⚡" }
-            ]
-        },
-        {
-            title: "TOOLS",
-            technologies: [
-                { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-                { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-                { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-                { name: "VSCODE", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-                { name: "VIM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" },
-                { name: "NPM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
-                { name: "PNPM", icon: "📦" },
-                { name: "Yarn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg" }
-            ]
-        },
-        {
-            title: "STUDYING",
-            technologies: [
-                { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-                { name: "GSAP", icon: "🌟" },
-                { name: "Frammer Motion", icon: "🎭" }
-            ]
-        }
-    ];
+    const skillsData = {
+        frontend: [
+            { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+            { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+            { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+            { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+            { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+            { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+            { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+            { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" }
+        ],
+        backend: [
+            { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+            { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+            { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+            { name: "Supabase", icon: "⚡" },
+            { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
+        ],
+        tools: [
+            { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+            { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+            { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+            { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+            { name: "NPM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+            { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+        ],
+        studying: [
+            { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+            { name: "Vue.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+            { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+            { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+            { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" }
+        ]
+    };
 
     return (
         <section className={styles.section} id="skills">
             <div className="section-content">
                 <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <h2 className={styles.title}>MY STACK</h2>
-                    </div>
-                
-                    <div className={styles.stackContainer}>
-                        {stackCategories.map((category, index) => (
-                            <StackCategory key={index} {...category} />
-                        ))}
+                    <h2 className={styles.title}>MY STACK</h2>
+                    
+                    <div className={styles.skillsGrid}>
+                        <div className={styles.skillSection}>
+                            <h3 className={styles.sectionTitle}>FRONTEND</h3>
+                            <div className={styles.skillsList}>
+                                {skillsData.frontend.map((skill, index) => (
+                                    <SkillItem key={index} skill={skill} />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className={styles.divider}></div>
+
+                        <div className={styles.skillSection}>
+                            <h3 className={styles.sectionTitle}>BACKEND</h3>
+                            <div className={styles.skillsList}>
+                                {skillsData.backend.map((skill, index) => (
+                                    <SkillItem key={index} skill={skill} />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className={styles.divider}></div>
+
+                        <div className={styles.skillSection}>
+                            <h3 className={styles.sectionTitle}>TOOLS</h3>
+                            <div className={styles.skillsList}>
+                                {skillsData.tools.map((skill, index) => (
+                                    <SkillItem key={index} skill={skill} />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className={styles.divider}></div>
+
+                        <div className={styles.skillSection}>
+                            <h3 className={styles.sectionTitle}>STUDYING</h3>
+                            <div className={styles.skillsList}>
+                                {skillsData.studying.map((skill, index) => (
+                                    <SkillItem key={index} skill={skill} />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,29 +92,23 @@ function Skills() {
     );
 }
 
-function StackCategory({ title, technologies }) {
+function SkillItem({ skill }) {
     return (
-        <div className={styles.stackCategory}>
-            <h3 className={styles.categoryTitle}>{title}</h3>
-            <div className={styles.technologiesFlow}>
-                {technologies.map((tech, index) => (
-                    <div key={index} className={styles.techItem}>
-                        <img 
-                            src={tech.icon.startsWith('http') ? tech.icon : undefined} 
-                            alt={tech.name}
-                            className={tech.icon.startsWith('http') ? styles.techIcon : styles.techIconHidden}
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'inline';
-                            }}
-                        />
-                        <span className={styles.techEmoji} style={{display: tech.icon.startsWith('http') ? 'none' : 'inline'}}>
-                            {tech.icon.startsWith('http') ? '💻' : tech.icon}
-                        </span>
-                        <span className={styles.techName}>{tech.name}</span>
-                    </div>
-                ))}
-            </div>
+        <div className={styles.skillItem}>
+            {skill.icon.startsWith('http') ? (
+                <img 
+                    src={skill.icon} 
+                    alt={skill.name}
+                    className={styles.skillIcon}
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                    }}
+                />
+            ) : (
+                <span className={styles.skillEmoji}>{skill.icon}</span>
+            )}
+            <span className={styles.skillName}>{skill.name}</span>
         </div>
     );
 }
