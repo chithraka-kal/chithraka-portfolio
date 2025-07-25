@@ -120,11 +120,20 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .viewBtn:hover {
     background: var(--color-accent-emphasis, #0550ae);
     transform: translateY(-2px);
+}
+
+.linkIcon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
 .cardContent {
@@ -172,6 +181,29 @@
     font-weight: 500;
     font-family: monospace;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1px solid transparent;
+}
+
+.credentialId:hover {
+    background: var(--color-accent-subtle, rgba(9, 105, 218, 0.1));
+    border: 1px solid var(--color-accent-fg, #0969da);
+    color: var(--color-accent-fg, #0969da);
+    transform: translateY(-1px);
+}
+
+.externalLinkIcon {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.credentialId:hover .externalLinkIcon {
+    opacity: 1;
 }
 
 /* View All Section */
