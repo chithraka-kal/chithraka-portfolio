@@ -1,8 +1,10 @@
 import styles from './Projects.module.css';
 import shouetopea from '../assets/shouetopea.png';
 import project1 from '../assets/pie.jpg';
-//import project2 from '../assets/shouetopea.png';
+import project2 from '../assets/cancer.jpg';
 import project3 from '../assets/yaman.png';
+import project4 from '../assets/chefclaude.png';
+import project6 from '../assets/thissogama.png';
 import { useState } from 'react';
 
 const allProjects = [
@@ -14,6 +16,32 @@ const allProjects = [
         link: "https://chithraka.itch.io/the-pie-verse-chronicles-2d",
         github: "https://github.com/chithraka-kal"
     },
+    
+    {
+        title: "Breast Cancer Prediction AI",
+        description: "A breast cancer detection system using traditional ML models, comparing performance across classifiers like Random Forest, XGBoost, and CNN. Currently extending with deep learning models for improved accuracy.",
+        image: project2,
+        tags: ["Python", "ML", "XGBoost", "Google Colab"],
+        link: "#",
+        github: "https://github.com/chithraka-kal"
+    },
+    {
+        title: "Yaman Travels Website",
+        description: "Developing a travel-focused website featuring destination guides, service listings, and customizable travel packages. Planning integration with Gemini API for intelligent travel suggestions.",
+        image: project3,
+        tags: ["React", "Vite", "Google AI", "CSS"],
+        link: "https://yaman-travels.netlify.app/",
+        github: "https://github.com/chithraka-kal"
+    },
+    {
+        title: "Chef Claude - AI Recipe Generator",
+        description: "A React-based web app that uses Google's Gemini Pro model to generate personalized recipes from user-provided ingredients. Features markdown rendering for AI responses and dynamic ingredient form handling.",
+        image: project4,
+        tags: ["React", "Vite", "Google AI", "JavaScript"],
+        link: "https://chef-digital.netlify.app/",
+        github: "https://github.com/chithraka-kal"
+    },
+    
     {
         title: "HopeLink - Charity Donation Platform",
         description: "Built a frontend interface for a charity donation platform, implementing responsive layouts, campaign browsing, and user-friendly forms. Integrated payment flow with Stripe and handled user authentication flows.",
@@ -23,33 +51,9 @@ const allProjects = [
         github: "https://github.com/chithraka-kal"
     },
     {
-        title: "Chef Claude - AI Recipe Generator",
-        description: "A React-based web app that uses Google's Gemini Pro model to generate personalized recipes from user-provided ingredients. Features markdown rendering for AI responses and dynamic ingredient form handling.",
-        image: project3,
-        tags: ["React", "Vite", "Google AI", "JavaScript"],
-        link: "https://chef-digital.netlify.app/",
-        github: "https://github.com/chithraka-kal"
-    },
-    {
-        title: "Yaman Travels Website",
-        description: "Developing a travel-focused website featuring destination guides, service listings, and customizable travel packages. Planning integration with Gemini API for intelligent travel suggestions.",
-        image: shouetopea,
-        tags: ["React", "Vite", "Google AI", "CSS"],
-        link: "https://yaman-travels.netlify.app/",
-        github: "https://github.com/chithraka-kal"
-    },
-    {
-        title: "Breast Cancer Prediction AI",
-        description: "A breast cancer detection system using traditional ML models, comparing performance across classifiers like Random Forest, XGBoost, and CNN. Currently extending with deep learning models for improved accuracy.",
-        image: shouetopea,
-        tags: ["Python", "ML", "XGBoost", "Google Colab"],
-        link: "#",
-        github: "https://github.com/chithraka-kal"
-    },
-    {
         title: "Thissogama Sripali School Website",
         description: "A web-based portal for a local government school using HTML, CSS, and JavaScript to improve information accessibility. Completed voluntarily as a first-year student project.",
-        image: shouetopea,
+        image: project6,
         tags: ["HTML", "CSS", "JavaScript"],
         link: "https://thissogama-sripali.netlify.app/",
         github: "https://github.com/chithraka-kal"
