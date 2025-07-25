@@ -10,6 +10,17 @@ function HeroSection() {
     const trailPositions = useRef(Array(5).fill().map(() => ({ x: 0, y: 0 })));
     const animationId = useRef(null);
 
+    // Function to handle CV download
+    const handleDownloadCV = () => {
+        const link = document.createElement('a');
+        link.href = '/Chithraka_Kalanamith_Resume.pdf';
+        link.download = 'Chithraka_Kalanamith_Resume.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             mousePosition.current = { x: e.clientX, y: e.clientY };
@@ -209,9 +220,12 @@ function HeroSection() {
                         <a href="#projects" className={styles.primaryButton}>
                             View My Work
                         </a>
-                        <a href="#contact" className={styles.secondaryButton}>
-                            Get In Touch
-                        </a>
+                        <button 
+                            onClick={handleDownloadCV}
+                            className={styles.secondaryButton}
+                        >
+                            Download CV
+                        </button>
                     </div>
                     <div className={styles.socialLinks}>
                         <a href="https://github.com/chithraka-kal" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
