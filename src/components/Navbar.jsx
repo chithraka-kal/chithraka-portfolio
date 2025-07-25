@@ -33,7 +33,10 @@ function Navbar() {
                     <div className={styles.nav}>
                         <ul className={styles.navList}>
                             <li className={styles.navItem}>
-                                <a href="#home" className={styles.navLink}>Home</a>
+                                <a href="#" className={styles.navLink} onClick={(e) => {
+                                    e.preventDefault();
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>Home</a>
                             </li>
                             <li className={styles.navItem}>
                                 <a href="#about" className={styles.navLink}>About</a>
