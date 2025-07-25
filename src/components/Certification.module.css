@@ -2,7 +2,6 @@
 .section {
     min-height: 100vh;
     padding: 60px 0;
-    background: var(--color-canvas-default, #ffffff);
     position: relative;
 }
 

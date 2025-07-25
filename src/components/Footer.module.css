@@ -1,6 +1,6 @@
 /* Footer */
 .footer {
-    background: transparent;
+    background: #0f172a;
     color: #ffffff;
     position: relative;
 }
@@ -8,7 +8,7 @@
 /* Get in Touch Section */
 .getInTouchSection {
     padding: 60px 0 40px 0;
-    background: transparent;
+    background: #0f172a;
 }
 
 .sectionTitle {
@@ -45,7 +45,7 @@
 }
 
 .rightContent {
-    background: transparent;
+    background: #0f172a;
 }
 
 /* Contact Cards */
@@ -106,13 +106,11 @@
 
 /* Contact Form */
 .contactForm {
-    background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(51, 65, 85, 0.6);
+    background: #1e293b;
+    border: 1px solid #334155;
     border-radius: 16px;
     padding: 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
 }
 
 .formRow {
@@ -184,28 +182,23 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 16px 32px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: #ffffff;
+    border: none;
     border-radius: 12px;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    min-width: 160px;
-    background: var(--secondary-bg);
-    color: var(--text-color);
-    border-color: var(--border-color);
-    backdrop-filter: blur(10px);
     cursor: pointer;
+    transition: all 0.3s ease;
     width: 100%;
     min-height: 48px;
 }
 
 .submitBtn:hover {
-    background: var(--border-muted);
-    border-color: var(--border-color);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
 }
 
 .sendIcon {
@@ -282,11 +275,11 @@
 /* Dark mode adjustments (already dark by default) */
 @media (prefers-color-scheme: dark) {
     .footer {
-        background: transparent;
+        background: #1a1a1a;
     }
     
     .getInTouchSection {
-        background: transparent;
+        background: #1a1a1a;
     }
     
     .contactCard {
@@ -322,12 +315,12 @@
 /* Light mode override */
 @media (prefers-color-scheme: light) {
     .footer {
-        background: transparent;
+        background: #0f172a;
         color: #ffffff;
     }
     
     .getInTouchSection {
-        background: transparent;
+        background: #0f172a;
     }
     
     .contactCard {
