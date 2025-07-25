@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './HeroSection.module.css';
 
 function HeroSection() {
@@ -9,6 +9,18 @@ function HeroSection() {
     const mousePosition = useRef({ x: 0, y: 0 });
     const trailPositions = useRef(Array(5).fill().map(() => ({ x: 0, y: 0 })));
     const animationId = useRef(null);
+
+    // Typing animation states
+    const [displayedText, setDisplayedText] = useState('');
+    const [isTyping, setIsTyping] = useState(true);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const subtitleTexts = [
+        "Full Stack Developer",
+        "React Specialist", 
+        "JavaScript Expert",
+        "UI/UX Enthusiast"
+    ];
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
     // Function to handle CV download
     const handleDownloadCV = () => {
@@ -159,6 +171,37 @@ function HeroSection() {
         };
     }, []);
 
+    // Typing animation effect
+    useEffect(() => {
+        const currentText = subtitleTexts[currentTextIndex];
+        let timeoutId;
+
+        if (isDeleting) {
+            if (displayedText.length > 0) {
+                timeoutId = setTimeout(() => {
+                    setDisplayedText(prev => prev.slice(0, -1));
+                }, 50);
+            } else {
+                setIsDeleting(false);
+                setCurrentTextIndex((prev) => (prev + 1) % subtitleTexts.length);
+                timeoutId = setTimeout(() => setIsTyping(true), 500);
+            }
+        } else if (isTyping) {
+            if (displayedText.length < currentText.length) {
+                timeoutId = setTimeout(() => {
+                    setDisplayedText(currentText.slice(0, displayedText.length + 1));
+                }, Math.random() * 100 + 50);
+            } else {
+                setIsTyping(false);
+                timeoutId = setTimeout(() => setIsDeleting(true), 2000);
+            }
+        }
+
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
+    }, [displayedText, isTyping, isDeleting, currentTextIndex, subtitleTexts]);
+
     useEffect(() => {
         const handleScroll = () => {
             if (!heroRef.current || !contentRef.current) return;
@@ -210,7 +253,8 @@ function HeroSection() {
                         <span className={styles.highlight}>Chithraka Kalanamith</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Full Stack Developer | React | Node.js
+                        {displayedText}
+                        <span className={`${styles.typingCursor} ${!isTyping && !isDeleting ? styles.blinking : ''}`}>|</span>
                     </p>
                     <p className={styles.description}>
                         Passionate about creating innovative web solutions and bringing ideas to life through code. 
