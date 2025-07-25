@@ -122,12 +122,54 @@
     position: relative;
 }
 
+/* Dark theme highlight - elegant gradient instead of pure white */
+[data-theme="dark"] .highlight {
+    background: linear-gradient(135deg, 
+        #ffffff 0%, 
+        #f0f6ff 25%, 
+        #e1f0ff 50%, 
+        #d4ebff 75%, 
+        #c7e5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
 .subtitle {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.4;
+}
+
+.typingCursor {
+    color: var(--accent-color);
+    font-weight: 400;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.typingCursor.blinking {
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
 }
 
 .description {
