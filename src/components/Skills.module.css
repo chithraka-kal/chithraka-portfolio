@@ -8,7 +8,7 @@
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -35,7 +35,7 @@
 .skillsGrid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 1rem;
+    gap: 2rem;
     align-items: start;
     min-height: 60vh;
     max-width: 100%;
@@ -51,9 +51,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 160px;
-    max-width: 200px;
-    padding: 0 0.5rem;
+    min-width: 200px;
+    max-width: 280px;
+    padding: 0 1rem;
     width: 100%;
     justify-self: center;
 }
@@ -88,7 +88,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 0.6rem;
     width: 100%;
-    max-width: 220px;
+    max-width: 260px;
     align-content: start;
 }
 
@@ -179,23 +179,23 @@
 /* Ultra-wide screen constraints */
 @media (min-width: 2000px) {
     .skillsGrid {
-        gap: 3.5rem;
-        max-width: 1500px; /* Maximum constraint for ultra-wide */
+        gap: 4rem;
+        max-width: 100%;
         margin: 0 auto;
     }
     
     .container {
-        max-width: 1800px;
+        max-width: 100%;
         padding: 0 4rem;
     }
     
     .skillSection {
-        min-width: 280px;
-        max-width: 350px;
+        min-width: 320px;
+        max-width: 400px;
     }
     
     .skillsList {
-        max-width: 320px;
+        max-width: 360px;
     }
     
     .skillItem {
@@ -208,13 +208,35 @@
 /* Responsive Design */
 @media (min-width: 1600px) {
     .skillsGrid {
-        gap: 3rem;
-        max-width: 1400px; /* Constrain maximum width */
-        margin: 0 auto; /* Center the grid */
+        gap: 3.5rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
     
     .container {
-        max-width: 1600px;
+        max-width: 100%;
+        padding: 0 3rem;
+    }
+    
+    .skillSection {
+        min-width: 280px;
+        max-width: 350px;
+    }
+    
+    .skillsList {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+    .skillsGrid {
+        gap: 3rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .container {
+        max-width: 100%;
         padding: 0 3rem;
     }
     
@@ -225,28 +247,6 @@
     
     .skillsList {
         max-width: 300px;
-    }
-}
-
-@media (min-width: 1400px) and (max-width: 1599px) {
-    .skillsGrid {
-        gap: 2.5rem;
-        max-width: 1300px; /* Constrain maximum width */
-        margin: 0 auto; /* Center the grid */
-    }
-    
-    .container {
-        max-width: 1600px;
-        padding: 0 3rem;
-    }
-    
-    .skillSection {
-        min-width: 240px;
-        max-width: 300px;
-    }
-    
-    .skillsList {
-        max-width: 280px;
     }
 }
 
