@@ -70,7 +70,13 @@ function Footer() {
             {/* Get in Touch Section */}
             <section className={styles.getInTouchSection}>
                 <div className={styles.maxWidthContainer}>
-                    <h2 className={styles.sectionTitle}>Get in Touch</h2>
+                    <div className={styles.sectionHeader}>
+                        <p className={styles.sectionTag}>CONTACT</p>
+                        <h2 className={styles.sectionTitle}>Get in Touch</h2>
+                        <p className={styles.subtitle}>
+                            Ready to collaborate? Let's connect and bring your ideas to life. I'd love to hear about your project and explore how we can work together.
+                        </p>
+                    </div>
                     <div className={styles.getInTouchContent}>
                         <div className={styles.leftContent}>
                             {/* Contact Details Cards */}
