@@ -11,16 +11,18 @@ function HeroSection() {
     const animationId = useRef(null);
 
     // Typing animation states
-    const [displayedText, setDisplayedText] = useState('');
-    const [isTyping, setIsTyping] = useState(true);
-    const [isDeleting, setIsDeleting] = useState(false);
     const subtitleTexts = [
         "Full Stack Developer",
-        "React Specialist", 
-        "JavaScript Expert",
-        "UI/UX Enthusiast"
+        "React Front-End Dev",
+        "Game Developer",
+        "JavaScript Enthusiast",
+        "AI/ML Enthusiast"
     ];
-    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    
+    const [displayedText, setDisplayedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [loopNum, setLoopNum] = useState(0);
+    const [typingSpeed, setTypingSpeed] = useState(150);
 
     // Function to handle CV download
     const handleDownloadCV = () => {
@@ -173,34 +175,28 @@ function HeroSection() {
 
     // Typing animation effect
     useEffect(() => {
-        const currentText = subtitleTexts[currentTextIndex];
-        let timeoutId;
+        const handleTyping = () => {
+            const i = loopNum % subtitleTexts.length;
+            const fullText = subtitleTexts[i];
 
-        if (isDeleting) {
-            if (displayedText.length > 0) {
-                timeoutId = setTimeout(() => {
-                    setDisplayedText(prev => prev.slice(0, -1));
-                }, 50);
-            } else {
+            setDisplayedText((prev) =>
+                isDeleting ? fullText.substring(0, prev.length - 1) : fullText.substring(0, prev.length + 1)
+            );
+
+            setTypingSpeed(isDeleting ? 50 : 120);
+
+            // Change states based on completion
+            if (!isDeleting && displayedText === fullText) {
+                setTimeout(() => setIsDeleting(true), 1000);
+            } else if (isDeleting && displayedText === "") {
                 setIsDeleting(false);
-                setCurrentTextIndex((prev) => (prev + 1) % subtitleTexts.length);
-                timeoutId = setTimeout(() => setIsTyping(true), 500);
+                setLoopNum((prev) => prev + 1);
             }
-        } else if (isTyping) {
-            if (displayedText.length < currentText.length) {
-                timeoutId = setTimeout(() => {
-                    setDisplayedText(currentText.slice(0, displayedText.length + 1));
-                }, Math.random() * 100 + 50);
-            } else {
-                setIsTyping(false);
-                timeoutId = setTimeout(() => setIsDeleting(true), 2000);
-            }
-        }
-
-        return () => {
-            if (timeoutId) clearTimeout(timeoutId);
         };
-    }, [displayedText, isTyping, isDeleting, currentTextIndex, subtitleTexts]);
+
+        const typingTimer = setTimeout(handleTyping, typingSpeed);
+        return () => clearTimeout(typingTimer);
+    }, [displayedText, isDeleting, loopNum, typingSpeed, subtitleTexts]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -254,7 +250,7 @@ function HeroSection() {
                     </h1>
                     <p className={styles.subtitle}>
                         {displayedText}
-                        <span className={`${styles.typingCursor} ${!isTyping && !isDeleting ? styles.blinking : ''}`}>|</span>
+                        <span className={`${styles.typingCursor} ${styles.blinking}`}>|</span>
                     </p>
                     <p className={styles.description}>
                         Passionate about creating innovative web solutions and bringing ideas to life through code. 

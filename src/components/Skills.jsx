@@ -42,7 +42,7 @@ function Skills() {
         <section className={styles.section} id="skills">
             <div className="section-content">
                 <div className={styles.container}>
-                    <h2 className={styles.title}>MY STACK</h2>
+                    <h2 className={styles.title}>My Stack</h2>
                     
                     <div className={styles.skillsGrid}>
                         <div className={styles.skillSection}>

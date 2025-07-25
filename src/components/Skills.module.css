@@ -32,6 +32,15 @@
     z-index: 100;
 }
 
+/* Dark mode: Make title white */
+[data-theme="dark"] .title {
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: #fff;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
 .skillsGrid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
