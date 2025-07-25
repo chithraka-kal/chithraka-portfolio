@@ -111,23 +111,50 @@
 }
 
 .viewBtn {
-    padding: 12px 24px;
-    background: var(--color-accent-fg, #0969da);
-    color: var(--color-fg-on-emphasis, #ffffff);
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    background: var(--secondary-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
     gap: 8px;
 }
 
 .viewBtn:hover {
-    background: var(--color-accent-emphasis, #0550ae);
-    transform: translateY(-2px);
+    background: var(--border-muted);
+    border-color: var(--border-color);
+    transform: translateY(-1px);
+}
+
+.viewBtn:hover .certificateIcon {
+    transform: scale(1.05);
+}
+
+.viewBtn:hover .externalIcon {
+    transform: translateX(2px);
+    opacity: 0.9;
+}
+
+.certificateIcon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.externalIcon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    opacity: 0.7;
 }
 
 .linkIcon {
@@ -217,21 +244,26 @@
     align-items: center;
     gap: 8px;
     padding: 16px 32px;
-    background: var(--color-accent-fg, #0969da);
-    color: var(--color-fg-on-emphasis, #ffffff);
-    border: none;
     border-radius: 12px;
-    font-size: 16px;
     font-weight: 600;
+    font-size: 1.1rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    min-width: 160px;
+    background: var(--secondary-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    backdrop-filter: blur(10px);
     cursor: pointer;
 }
 
 .viewAllButton:hover {
-    background: var(--color-accent-emphasis, #0550ae);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(9, 105, 218, 0.3);
+    background: var(--border-muted);
+    border-color: var(--border-color);
+    transform: translateY(-1px);
 }
 
 .arrowIcon {
