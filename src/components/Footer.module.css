@@ -184,23 +184,28 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    color: #ffffff;
-    border: none;
+    padding: 16px 32px;
     border-radius: 12px;
-    font-size: 16px;
     font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    min-width: 160px;
+    background: var(--secondary-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    backdrop-filter: blur(10px);
     cursor: pointer;
-    transition: all 0.3s ease;
     width: 100%;
     min-height: 48px;
 }
 
 .submitBtn:hover {
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+    background: var(--border-muted);
+    border-color: var(--border-color);
+    transform: translateY(-1px);
 }
 
 .sendIcon {
