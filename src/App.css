@@ -252,9 +252,10 @@ a:hover {
   backdrop-filter: none;
   border: none;
   box-shadow: none;
-  /* Keep max-width and padding for consistent layout */
-  max-width: 1200px;
-  padding: 3rem;
+  /* Full width for skills section */
+  max-width: 100%;
+  margin: 0;
+  padding: 3rem 2rem;
 }
 
 /* Smooth scrolling for the entire page */
