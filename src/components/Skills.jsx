@@ -42,7 +42,13 @@ function Skills() {
         <section className={styles.section} id="skills">
             <div className="section-content">
                 <div className={styles.container}>
-                    <h2 className={styles.title}>My Stack</h2>
+                    <div className={styles.sectionHeader}>
+                        <p className={styles.sectionTag}>TECHNOLOGIES</p>
+                        <h2 className={styles.title}>My Stack</h2>
+                        <p className={styles.subtitle}>
+                            A comprehensive overview of the technologies, frameworks, and tools I use to build modern web applications and bring creative ideas to life.
+                        </p>
+                    </div>
                     
                     <div className={styles.skillsGrid}>
                         <div className={styles.skillSection}>
