@@ -1,5 +1,6 @@
 import styles from './Footer.module.css';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Footer() {
     const [formData, setFormData] = useState({
@@ -18,12 +19,50 @@ function Footer() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
-        // Reset form
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        
+        try {
+            // EmailJS configuration
+            const serviceID = 'service_wtrjs4r'; // Your EmailJS service ID
+            const templateID = 'template_hcq86pf'; // Your EmailJS template ID
+            const publicKey = 'qRRfX9GGB1mI0stw9'; // Your EmailJS public key
+            
+            // Prepare template parameters
+            const templateParams = {
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                subject: formData.subject,
+                message: formData.message,
+                to_email: 'chithrakakalanamith@gmail.com', // Your email
+            };
+
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                serviceID,
+                templateID,
+                templateParams,
+                publicKey
+            );
+
+            if (response.status === 200) {
+                alert('Thank you for your message! I will get back to you soon.');
+                
+                // Reset form
+                setFormData({ 
+                    name: '', 
+                    email: '', 
+                    phone: '', 
+                    subject: '', 
+                    message: '' 
+                });
+            }
+            
+        } catch (error) {
+            console.error('Error sending message:', error);
+            alert('Sorry, there was an error sending your message. Please try again.');
+        }
     };
 
     return (
@@ -125,6 +164,18 @@ function Footer() {
                             <form className={styles.contactForm} onSubmit={handleSubmit}>
                                 <div className={styles.formRow}>
                                     <div className={styles.formGroup}>
+                                        <label className={styles.formLabel}>Full Name</label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleInputChange}
+                                            className={styles.formInput}
+                                            placeholder="Your full name"
+                                            required
+                                        />
+                                    </div>
+                                    <div className={styles.formGroup}>
                                         <label className={styles.formLabel}>Email Address</label>
                                         <input
                                             type="email"
@@ -132,9 +183,13 @@ function Footer() {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             className={styles.formInput}
+                                            placeholder="your.email@example.com"
                                             required
                                         />
                                     </div>
+                                </div>
+
+                                <div className={styles.formRow}>
                                     <div className={styles.formGroup}>
                                         <label className={styles.formLabel}>Phone Number</label>
                                         <input
@@ -143,23 +198,28 @@ function Footer() {
                                             value={formData.phone}
                                             onChange={handleInputChange}
                                             className={styles.formInput}
+                                            placeholder="+94 77 XXX XXXX"
                                             required
                                         />
                                     </div>
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label className={styles.formLabel}>Subject</label>
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        value={formData.subject}
-                                        onChange={handleInputChange}
-                                        className={styles.formSelect}
-                                        required
-                                    >
-                    
-                                    </input>
+                                    <div className={styles.formGroup}>
+                                        <label className={styles.formLabel}>Subject</label>
+                                        <select
+                                            name="subject"
+                                            value={formData.subject}
+                                            onChange={handleInputChange}
+                                            className={styles.formSelect}
+                                            required
+                                        >
+                                            <option value="">Select a subject</option>
+                                            <option value="General Inquiry">General Inquiry</option>
+                                            <option value="Project Discussion">Project Discussion</option>
+                                            <option value="Collaboration">Collaboration</option>
+                                            <option value="Job Opportunity">Job Opportunity</option>
+                                            <option value="Freelance Work">Freelance Work</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div className={styles.formGroup}>
