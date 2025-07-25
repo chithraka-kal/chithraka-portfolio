@@ -175,6 +175,18 @@
         0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Active state for current section */
+.navLink.active {
+    color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    font-weight: 600;
+}
+
+.navLink.active::after {
+    width: 80%;
+}
+
 .themeToggle {
     position: relative;
     background: rgba(var(--accent-rgb), 0.08);
