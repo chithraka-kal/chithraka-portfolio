@@ -1,6 +1,13 @@
 import styles from './Certification.module.css';
 import Certificate1 from '../assets/react.jpg';
-import Certificate2 from '../assets/Certificate1.png';
+import Certificate2 from '../assets/google-tensflowr.png';
+import Certificate3 from '../assets/inro-gen-AI.png';
+import Certificate4 from '../assets/Intro-LLM.png';
+import Certificate5 from '../assets/c.png'
+import Certificate6 from '../assets/java.png';
+import Certificate7 from '../assets/sql.png';
+import Certificate8 from '../assets/wordpress.jpg';
+
 import { useState } from 'react';
 
 function Certification() {
@@ -17,67 +24,67 @@ function Certification() {
             certificateUrl: "https://scrimba.com/certificate-cert24zAwPPowRMuqKUfo9kSpSqoY84FktbyfiztY"
         },
         {
-            name: "Full Stack JavaScript Developer",
-            issuer: "freeCodeCamp",
-            date: "2023",
+            name: "Images with TensorFlow on Google Cloud",
+            issuer: "Google Cloud Skills Boost",
+            date: "2025",
             description: "Comprehensive certification covering frontend and backend development with JavaScript.",
             image: Certificate2,
-            credentialId: "FCC-FULLSTACK-2023-002",
-            certificateUrl: "https://www.freecodecamp.org/certification/chithraka/full-stack"
+            credentialId: "Skill Badge",
+            certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/14813477?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
         },
         {
-            name: "AWS Cloud Practitioner",
-            issuer: "Amazon Web Services",
-            date: "2024",
+            name: "Introduction to Generative AI",
+            issuer: "Google Cloud Skills Boost",
+            date: "2023",
             description: "Foundation-level certification demonstrating understanding of AWS cloud services.",
-            image: Certificate1,
-            credentialId: "AWS-CCP-2024-003",
-            certificateUrl: "https://aws.amazon.com/certification/certified-cloud-practitioner/"
+            image: Certificate3,
+            credentialId: "4985670",
+            certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/4985670"
         },
         {
-            name: "JavaScript Algorithms and Data Structures",
-            issuer: "freeCodeCamp",
+            name: "Introduction to Large Language Models",
+            issuer: "Google Cloud Skills Boost",
             date: "2023",
             description: "Advanced algorithms, data structures, and functional programming concepts.",
-            image: Certificate1,
-            credentialId: "FCC-ALGO-2023-004",
-            certificateUrl: "https://www.freecodecamp.org/certification/chithraka/javascript-algorithms-and-data-structures"
+            image: Certificate4,
+            credentialId: "5143668",
+            certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/5143668"
         },
         {
-            name: "Node.js Application Development",
-            issuer: "OpenJS Foundation",
-            date: "2024",
+            name: "Introduction to C",
+            issuer: "SoloLearn",
+            date: "2023",
             description: "Server-side JavaScript development with Node.js and Express framework.",
-            image: Certificate1,
-            credentialId: "NODE-DEV-2024-005",
-            certificateUrl: "https://nodejs.org/en/certification"
+            image: Certificate5,
+            credentialId: "CC-YUDZDLZ1",
+            certificateUrl: "https://www.sololearn.com/en/certificates/CC-YUDZDLZ1"
         },
         {
-            name: "MongoDB Developer Certification",
-            issuer: "MongoDB University",
+            name: "Introduction to Java",
+            issuer: "SoloLearn",
             date: "2023",
             description: "Database design, queries, and application development with MongoDB.",
-            image: Certificate1,
-            credentialId: "MONGO-DEV-2023-006",
-            certificateUrl: "https://university.mongodb.com/certification"
+            image: Certificate6,
+            credentialId: "CC-VW0OJ8RW",
+            certificateUrl: "https://www.sololearn.com/en/certificates/CC-VW0OJ8RW"
         },
         {
-            name: "Git and GitHub Mastery",
-            issuer: "GitHub",
-            date: "2024",
+            name: "Introduction to SQL",
+            issuer: "SoloLearn",
+            date: "2023",
             description: "Version control, collaboration, and advanced Git workflows.",
-            image: Certificate1,
-            credentialId: "GIT-MASTER-2024-007",
-            certificateUrl: "https://github.com/achievements"
+            image: Certificate7,
+            credentialId: "CC-M57EB8RY",
+            certificateUrl: "https://www.sololearn.com/en/certificates/CC-M57EB8RY"
         },
         {
-            name: "Web Performance Optimization",
-            issuer: "Google",
-            date: "2024",
+            name: "Build a Full Website using WordPress",
+            issuer: "Coursera",
+            date: "2023",
             description: "Advanced techniques for optimizing web application performance.",
-            image: Certificate1,
-            credentialId: "GOOGLE-PERF-2024-008",
-            certificateUrl: "https://developers.google.com/web/fundamentals/performance"
+            image: Certificate8,
+            credentialId: "6A99B4XT57S5",
+            certificateUrl: "https://www.coursera.org/account/accomplishments/certificate/6A99B4XT57S5"
         }
     ];
 
