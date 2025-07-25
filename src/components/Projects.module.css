@@ -179,9 +179,10 @@
 
 .imageContainer {
     position: relative;
-    height: 180px;
+    height: 200px;
     overflow: hidden;
     background: var(--color-canvas-subtle, #f6f8fa);
+    flex-shrink: 0;
 }
 
 .projectImage {
@@ -282,8 +283,14 @@
     color: var(--color-fg-muted, #656d76);
     line-height: 1.6;
     margin: 0 0 24px 0;
-    flex: 1;
     font-size: 15px;
+    height: 96px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 .tags {
@@ -401,7 +408,7 @@
     }
     
     .imageContainer {
-        height: 180px;
+        height: 200px;
     }
     
     .cardContent {
@@ -410,6 +417,12 @@
     
     .projectTitle {
         font-size: 1.25rem;
+    }
+    
+    .projectDescription {
+        height: 96px;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
     }
 }
 
@@ -431,11 +444,17 @@
     }
     
     .imageContainer {
-        height: 160px;
+        height: 180px;
     }
     
     .cardContent {
         padding: 20px;
+    }
+    
+    .projectDescription {
+        height: 84px;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
     }
     
     .overlayContent {
@@ -517,11 +536,18 @@
     }
     
     .imageContainer {
-        height: 140px;
+        height: 160px;
     }
     
     .cardContent {
         padding: 16px;
+    }
+    
+    .projectDescription {
+        height: 72px;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        font-size: 14px;
     }
     
     .overlayContent {

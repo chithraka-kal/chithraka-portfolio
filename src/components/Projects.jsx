@@ -8,51 +8,51 @@ import { useState } from 'react';
 const allProjects = [
     {
         title: "2D Platformer Game",
-        description: "A modern e-commerce platform built with React and Node.js featuring user authentication, payment integration, and admin dashboard.",
+        description: "Developed a 2D story-rich platformer in Unity featuring custom combat, enemy AI, and a dialog-driven narrative with level design, animation, and UI fully built from scratch. Published on Itch.io and recognized by popular streamers.",
         image: project1,
-        tags: ["React", "Node.js", "MongoDB"],
-        link: "#",
-        github: "#"
+        tags: ["Unity", "C#", "GitHub"],
+        link: "https://chithraka.itch.io/the-pie-verse-chronicles-2d",
+        github: "https://github.com/chithraka-kal"
     },
     {
-        title: "Task Management App",
-        description: "A collaborative task management application with real-time updates, team collaboration, and project tracking features.",
+        title: "HopeLink - Charity Donation Platform",
+        description: "Built a frontend interface for a charity donation platform, implementing responsive layouts, campaign browsing, and user-friendly forms. Integrated payment flow with Stripe and handled user authentication flows.",
         image: shouetopea,
-        tags: ["React", "Socket.io", "Express"],
+        tags: ["React", "Express.js", "MongoDB", "Stripe"],
         link: "#",
-        github: "#"
+        github: "https://github.com/chithraka-kal"
+    },
+    {
+        title: "Chef Claude - AI Recipe Generator",
+        description: "A React-based web app that uses Google's Gemini Pro model to generate personalized recipes from user-provided ingredients. Features markdown rendering for AI responses and dynamic ingredient form handling.",
+        image: project3,
+        tags: ["React", "Vite", "Google AI", "JavaScript"],
+        link: "https://chef-digital.netlify.app/",
+        github: "https://github.com/chithraka-kal"
     },
     {
         title: "Yaman Travels Website",
-        description: "A responsive weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
-        image: project3,
-        tags: ["JavaScript", "API", "CSS"],
-        link: "#",
-        github: "#"
+        description: "Developing a travel-focused website featuring destination guides, service listings, and customizable travel packages. Planning integration with Gemini API for intelligent travel suggestions.",
+        image: shouetopea,
+        tags: ["React", "Vite", "Google AI", "CSS"],
+        link: "https://yaman-travels.netlify.app/",
+        github: "https://github.com/chithraka-kal"
     },
     {
-        title: "Blog Platform",
-        description: "A full-featured blog platform with admin panel, user authentication, and content management system.",
+        title: "Breast Cancer Prediction AI",
+        description: "A breast cancer detection system using traditional ML models, comparing performance across classifiers like Random Forest, XGBoost, and CNN. Currently extending with deep learning models for improved accuracy.",
         image: shouetopea,
-        tags: ["React", "Firebase", "Tailwind"],
+        tags: ["Python", "ML", "XGBoost", "Google Colab"],
         link: "#",
-        github: "#"
+        github: "https://github.com/chithraka-kal"
     },
     {
-        title: "Portfolio Website",
-        description: "A responsive portfolio website showcasing my work with modern design and smooth animations.",
+        title: "Thissogama Sripali School Website",
+        description: "A web-based portal for a local government school using HTML, CSS, and JavaScript to improve information accessibility. Completed voluntarily as a first-year student project.",
         image: shouetopea,
-        tags: ["React", "Vite", "CSS"],
-        link: "#",
-        github: "#"
-    },
-    {
-        title: "Chat Application",
-        description: "A real-time chat application with rooms, notifications, and file sharing capabilities.",
-        image: shouetopea,
-        tags: ["React", "Socket.io", "Node.js"],
-        link: "#",
-        github: "#"
+        tags: ["HTML", "CSS", "JavaScript"],
+        link: "https://thissogama-sripali.netlify.app/",
+        github: "https://github.com/chithraka-kal"
     }
 ];
 

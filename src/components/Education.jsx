@@ -4,23 +4,30 @@ function Education() {
     const educationData = [
         {
             degree: "Bachelor of Science in Computer Science",
-            school: "University of Technology",
-            year: "2020 - 2024",
-            description: "Focused on software engineering, web development, and database management. Completed projects in React, Node.js, and full-stack development.",
+            school: "NSBM Green University",
+            year: "2022 - Present",
+            description: "Currently pursuing comprehensive studies in computer science with emphasis on software engineering principles, algorithms, and data structures. Developing expertise in modern programming languages and software development methodologies.",
             gpa: "3.8/4.0"
         },
         {
-            degree: "Advanced Web Development Certification",
-            school: "Tech Institute",
+            degree: "Fullstack Web Development Course",
+            school: "University of Moratuwa",
             year: "2023",
-            description: "Specialized certification in modern web technologies including React, Node.js, TypeScript, and cloud deployment.",
+            description: "Intensive program covering modern web development technologies including React.js, Node.js, Express.js, and database integration. Gained hands-on experience in building responsive, full-stack web applications with industry best practices.",
             gpa: "Distinction"
         },
         {
-            degree: "High School Diploma",
-            school: "Central High School",
-            year: "2016 - 2020",
-            description: "Graduated with honors. Active in programming club and mathematics competitions. Developed first web applications during this period.",
+            degree: "AI/ML Certification Course",
+            school: "Sri Lanka Institute of Information Technology",
+            year: "2025",
+            description: "Advanced certification program focusing on artificial intelligence and machine learning concepts. Covering neural networks, deep learning, natural language processing, and practical implementation of AI solutions using Python and TensorFlow.",
+            gpa: "3.9/4.0"
+        },
+        {
+            degree: "GCE Advanced Level (Physical Science)",
+            school: "Central College Kuliyapitiya",
+            year: "2020",
+            description: "Completed Advanced Level studies in Physical Science stream with subjects in Mathematics, Physics, and ICT. Strong foundation in analytical thinking and problem-solving skills that later contributed to programming aptitude.",
             gpa: "3.9/4.0"
         }
     ];
@@ -47,7 +54,7 @@ function Education() {
                             <div className={styles.educationCard}>
                                 <div className={styles.cardHeader}>
                                     <div className={styles.yearBadge}>{item.year}</div>
-                                    <div className={styles.gpaBadge}>{item.gpa}</div>
+                                    {/* <div className={styles.gpaBadge}>{item.gpa}</div> */}
                                 </div>
                                 <div className={styles.cardContent}>
                                     <h3 className={styles.degree}>{item.degree}</h3>

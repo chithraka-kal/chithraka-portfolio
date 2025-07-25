@@ -115,6 +115,7 @@
     border-radius: 12px;
     font-weight: 600;
     font-size: 1.1rem;
+    text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     position: relative;
@@ -122,13 +123,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     min-width: 160px;
     background: var(--secondary-bg);
     color: var(--text-color);
     border-color: var(--border-color);
     backdrop-filter: blur(10px);
     cursor: pointer;
-    gap: 8px;
 }
 
 .viewBtn:hover {
@@ -292,11 +293,34 @@
     }
     
     .viewBtn {
-        background: var(--color-accent-fg, #58a6ff);
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 160px;
+    background: var(--secondary-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+        
     }
     
     .viewBtn:hover {
-        background: var(--color-accent-emphasis, #1f6feb);
+            background: var(--primary-bg);
+    color: var(--color-fg-on-emphasis, #ffffff);
+    border-color: var(--primary-border);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(9, 105, 218, 0.35);
     }
 }
 
