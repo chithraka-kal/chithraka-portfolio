@@ -24,7 +24,7 @@ function Footer() {
         
         try {
             // EmailJS configuration
-            const serviceID = 'service_wtrjs4r'; // Your EmailJS service ID
+            const serviceID = 'service_gcxf6xo'; // Your EmailJS service ID
             const templateID = 'template_hcq86pf'; // Your EmailJS template ID
             const publicKey = 'qRRfX9GGB1mI0stw9'; // Your EmailJS public key
             
