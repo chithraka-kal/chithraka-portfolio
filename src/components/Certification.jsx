@@ -27,7 +27,7 @@ function Certification() {
             name: "Images with TensorFlow on Google Cloud",
             issuer: "Google Cloud Skills Boost",
             date: "2025",
-            description: "Comprehensive certification covering frontend and backend development with JavaScript.",
+            description: "Machine learning certification focusing on image processing and computer vision using TensorFlow on Google Cloud Platform.",
             image: Certificate2,
             credentialId: "Skill Badge",
             certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/14813477?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
@@ -36,7 +36,7 @@ function Certification() {
             name: "Introduction to Generative AI",
             issuer: "Google Cloud Skills Boost",
             date: "2023",
-            description: "Foundation-level certification demonstrating understanding of AWS cloud services.",
+            description: "Foundational certification covering the principles and applications of generative artificial intelligence technologies.",
             image: Certificate3,
             credentialId: "4985670",
             certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/4985670"
@@ -45,7 +45,7 @@ function Certification() {
             name: "Introduction to Large Language Models",
             issuer: "Google Cloud Skills Boost",
             date: "2023",
-            description: "Advanced algorithms, data structures, and functional programming concepts.",
+            description: "Comprehensive introduction to large language models, their architecture, training, and practical applications in AI.",
             image: Certificate4,
             credentialId: "5143668",
             certificateUrl: "https://www.cloudskillsboost.google/public_profiles/56de2524-5c7c-4cb1-a8e8-103275fdca9a/badges/5143668"
@@ -54,7 +54,7 @@ function Certification() {
             name: "Introduction to C",
             issuer: "SoloLearn",
             date: "2023",
-            description: "Server-side JavaScript development with Node.js and Express framework.",
+            description: "Fundamental programming concepts and syntax in C language, covering variables, functions, and memory management.",
             image: Certificate5,
             credentialId: "CC-YUDZDLZ1",
             certificateUrl: "https://www.sololearn.com/en/certificates/CC-YUDZDLZ1"
@@ -63,7 +63,7 @@ function Certification() {
             name: "Introduction to Java",
             issuer: "SoloLearn",
             date: "2023",
-            description: "Database design, queries, and application development with MongoDB.",
+            description: "Object-oriented programming fundamentals in Java, including classes, inheritance, and core Java concepts.",
             image: Certificate6,
             credentialId: "CC-VW0OJ8RW",
             certificateUrl: "https://www.sololearn.com/en/certificates/CC-VW0OJ8RW"
@@ -72,7 +72,7 @@ function Certification() {
             name: "Introduction to SQL",
             issuer: "SoloLearn",
             date: "2023",
-            description: "Version control, collaboration, and advanced Git workflows.",
+            description: "Database fundamentals and SQL query language, covering data manipulation, joins, and database design principles.",
             image: Certificate7,
             credentialId: "CC-M57EB8RY",
             certificateUrl: "https://www.sololearn.com/en/certificates/CC-M57EB8RY"
@@ -81,7 +81,7 @@ function Certification() {
             name: "Build a Full Website using WordPress",
             issuer: "Coursera",
             date: "2023",
-            description: "Advanced techniques for optimizing web application performance.",
+            description: "Complete WordPress development course covering theme customization, plugin integration, and website deployment.",
             image: Certificate8,
             credentialId: "6A99B4XT57S5",
             certificateUrl: "https://www.coursera.org/account/accomplishments/certificate/6A99B4XT57S5"
