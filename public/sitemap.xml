@@ -66,4 +66,7 @@
     <loc>https://chithraka-dev.netlify.app/projects/2d-platformer-game</loc>
     <lastmod>2025-08-03</lastmod>
     <changefreq>monthly</changefreq>
-    <pri
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
