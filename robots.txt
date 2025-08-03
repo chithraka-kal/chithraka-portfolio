@@ -1,12 +1,16 @@
 User-agent: *
 Allow: /
 
+# Allow all search engines to crawl the entire site
+# Portfolio sites should be fully accessible to search engines
 
 # Sitemap location
 Sitemap: https://chithraka-dev.netlify.app/sitemap.xml
 
+# Crawl delay (optional - helps prevent overwhelming the server)
+Crawl-delay: 1
 
-# Disallow any temporary or development files
+# Disallow any temporary or development files (if any)
 Disallow: /temp/
 Disallow: *.tmp
 Disallow: /src/
