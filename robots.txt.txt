@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+
+# Sitemap location
+Sitemap: https://chithraka-dev.netlify.app/sitemap.xml
+
+
+# Disallow any temporary or development files
+Disallow: /temp/
+Disallow: *.tmp
+Disallow: /src/
+Disallow: /node_modules/
+
+# Allow common web files
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.pdf
