@@ -5,9 +5,18 @@ import project2 from '../assets/cancer.jpg';
 import project3 from '../assets/yaman.png';
 import project4 from '../assets/chefclaude.png';
 import project6 from '../assets/thissogama.png';
+import medi_help from '../assets/medihelp.png';
 import { useState } from 'react';
 
 const allProjects = [
+    {
+        title: "MediHelp - Clinic Management System (React + Node.js + MongoDB)",
+        description: "A comprehensive clinic management system built with React, Node.js, and MongoDB. Features include appointment scheduling, patient management, and a responsive design.",
+        image: medi_help,
+        tags: ["React", "Node.js", "MongoDB", "Tailwind CSS", "JavaScript", "Rest API"],
+        link: "http://medihelp-clinic.netlify.app/",
+        github: "https://github.com/chithraka-kal/MediHelp-clinic-management-system"
+    },
     {
         title: "2D Platformer Game",
         description: "Developed a 2D story-rich platformer in Unity featuring custom combat, enemy AI, and a dialog-driven narrative with level design, animation, and UI fully built from scratch. Published on Itch.io and recognized by popular streamers.",
